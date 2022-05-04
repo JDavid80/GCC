@@ -1,0 +1,200 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* .form-planeacion {
+    display: grid;
+    width: 80%;
+    margin: 0 auto;
+    border: 1px solid black;
+    grid-template:  "emptyIzq titulo-principal  empty2" 50px
+                    "emptyInLine1 emptyInline1 emptyInline1" 20px
+                    "emptyIzq2 lbl-asignatura  emptyDer2" 50px
+                    "emptyIzq2 txt-asignatura  emptyDer2" 50px
+                    "emptyIzq2 lbl-orientador emptyDer2" 50px 
+                    "emptyIzq2 txt-orientador  emptyDer2" 50px
+                    "emptyIzq2 lbl-curso       emptyDer2" 50px /
+                     1fr   500px          1fr;
+} */
+.display-titulo-principal {
+    display: grid;
+    grid-template: "emptyIzq titulo-principal  emptyDer" 50px
+                   "empty    empty             empty" 20px /
+                    1fr      500px             1fr;
+}
+.display-asignatura {
+    display: grid;
+    grid-template: "emptyIzq  lbl-asignatura  emptyDer" 25px
+                    "emptyIzq txt-asignatura  emptyDer" 50px
+                    "empty    empty           empty"    30px /
+                     1fr      500px           1fr;
+}
+.display-orientador {
+    display: grid;
+    grid-template: "emptyIzq  lbl-orientador  emptyDer" 25px
+                    "emptyIzq txt-orientador  emptyDer" 50px
+                    "empty    empty           empty"    30px /
+                     1fr      500px           1fr;
+}
+.display-curso {
+    display: grid;
+    grid-template: "emptyIzq  lbl-curso  emptyDer" 25px
+                    "emptyIzq txt-curso  emptyDer" 50px
+                    "empty    empty      empty"    30px /
+                     1fr      500px      1fr;
+}
+.display-periodo {
+    display: grid;
+    grid-template: "emptyIzq  lbl-periodo emptyDer" 25px
+                    "emptyIzq txt-periodo emptyDer" 50px
+                    "empty    empty       empty"    30px /
+                     1fr      500px       1fr;
+}
+.display-unidad {
+    display: grid;
+    grid-template: "emptyIzq  lbl-unidad emptyDer" 25px
+                    "emptyIzq txt-unidad emptyDer" 50px
+                    "empty    empty       empty"    30px /
+                     1fr      500px       1fr;
+}
+.display-topicos {
+    display: grid;
+    grid-template: "emptyIzq  lbl-topicos emptyDer" 25px
+                    "emptyIzq txt-topicos emptyDer" 50px
+                    "empty    empty       empty"    30px /
+                     1fr      500px       1fr;
+}
+.display-hilos {
+    display: grid;
+    grid-template: "emptyIzq  lbl-hilos emptyDer" 25px
+                    "emptyIzq txt-hilos emptyDer" 50px
+                    "empty    empty     empty"    30px /
+                     1fr      500px     1fr;
+}
+.display-metas-comprension {
+    display: grid;
+    grid-template: "emptyIzq  lbl-metas-comprension emptyDer" 25px
+                    "emptyIzq txt-metas-comprension emptyDer" 50px
+                    "empty    empty                 empty"    30px /
+                     1fr      500px                 1fr;
+}
+.display-actividades-criterios {
+    display: grid;
+    grid-template: "emptyIzq  lbl-actividades-criterios emptyDer" 25px
+                    "emptyIzq txt-actividades-criterios emptyDer" 50px
+                    "empty    empty                     empty"    30px /
+                     1fr      500px                     1fr;
+}
+.display-semana {
+    display: grid;
+    grid-template: "emptyIzq  lbl-semana emptyDer" 25px
+                    "emptyIzq txt-semana emptyDer" 50px
+                    "empty    empty      empty"    30px /
+                     1fr      500px      1fr;
+}
+.display-meta-comprension {
+    display: grid;
+    grid-template: "emptyIzq  lbl-meta-comprension emptyDer" 25px
+                    "emptyIzq txt-meta-comprension emptyDer" 50px
+                    "empty    empty                empty"    30px /
+                     1fr      500px                1fr;
+}
+.display-desempenyos-comprension {
+    display: grid;
+    grid-template: "emptyIzq  lbl-desempenyos-comprension emptyDer" 25px
+                    "emptyIzq txt-desempenyos-comprension emptyDer" 50px
+                    "empty    empty                empty"    30px /
+                     1fr      500px                1fr;
+}
+.display-recursos {
+    display: grid;
+    grid-template: "emptyIzq  lbl-recursos emptyDer" 25px
+                    "emptyIzq txt-recursos emptyDer" 50px
+                    "empty    empty                empty"    30px /
+                     1fr      500px                1fr;
+}
+.titulo-principal {
+    grid-area: titulo-principal;
+    text-align: center;
+}
+.lbl-asignatura {
+    grid-area: lbl-asignatura;
+    text-align: left;
+}
+.txt-asignatura {
+    grid-area: txt-asignatura;
+    text-align: left;
+}
+.lbl-orientador {
+    grid-area: lbl-orientador;
+}
+.txt-orientador {
+    grid-area: txt-orientador;
+}
+.lbl-curso {
+    grid-area: lbl-curso;
+}
+.txt-curso {
+    grid-area: txt-curso;
+}
+.lbl-periodo {
+    grid-area: lbl-periodo; 
+}
+.txt-periodo {
+    grid-area: txt-periodo;
+}
+.lbl-unidad {
+    grid-area: lbl-unidad;
+}
+.txt-unidad {
+    grid-area: txt-unidad;
+}
+.lbl-topicos {
+    grid-area: lbl-topicos;
+}
+.txt-topicos {
+    grid-area: txt-topicos;
+}
+.lbl-hilos {
+    grid-area: lbl-hilos;
+}
+.txt-hilos {
+    grid-area: txt-hilos;
+}
+.lbl-metas-comprension {
+    grid-area: lbl-metas-comprension;
+}
+.txt-metas-comprension {
+    grid-area: txt-metas-comprension;
+}
+.lbl-actividades-criterios {
+    grid-area: lbl-actividades-criterios;
+}
+.txt-actividades-criterios {
+    grid-area: txt-actividades-criterios;
+}
+.lbl-semana {
+    grid-area: lbl-semana;
+}
+.txt-semana {
+    grid-area: txt-semana;
+}
+.lbl-meta-comprension {
+    grid-area: lbl-meta-comprension;
+}
+.txt-meta-comprension {
+    grid-area: txt-meta-comprension;
+}
+.lbl-desempenyos-comprension {
+    grid-area: lbl-desempenyos-comprension;
+}
+.txt-desempenyos-comprension {
+    grid-area: txt-desempenyos-comprension;
+}
+.lbl-recursos {
+    grid-area: lbl-recursos;
+}
+.txt-recursos {
+    grid-area: txt-recursos;
+}
