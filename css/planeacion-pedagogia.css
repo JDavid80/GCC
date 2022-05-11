@@ -1,8 +1,38 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
+body {
+    background-color: rgb(240,235,248);
+}
+.main-content {
+    display: grid;
+    width: 100%;89
+    background-color: red;
+    grid-template: "main-nav-hidden form-box" /
+                    250px            auto;
+}
+.main-nav {
+    position: fixed;
+    height: 100vh;
+    width: 250px;
+    background-color: rgb(53,104,167);
+}
+.main-nav-hidden {
+    grid-area: main-nav-hidden;
+    height: 100vh;
+    width: 250px;
+    visibility: hidden;
+}
+.form-box {
+    grid-area: form-box;
+    display: grid;
+    width: 100%;
+    background-color: blue;
+    grid-template: "empty-izq form-planeacion empty-der" /
+                    15px         1fr          15px;
+}
+
 /* .form-planeacion {
     display: grid;
     width: 80%;
@@ -15,104 +45,113 @@
                     "emptyIzq2 lbl-orientador emptyDer2" 50px 
                     "emptyIzq2 txt-orientador  emptyDer2" 50px
                     "emptyIzq2 lbl-curso       emptyDer2" 50px /
-                     1fr   500px          1fr;
+                     1fr   400px          1fr;
+} */
+
+.form-planeacion {
+    grid-area: form-planeacion;
+    border: 1px solid transparent;
+    background-color: white;
+    margin: 50px;
+    border-radius: 15px;
+    width: 100%;
 } */
 .display-titulo-principal {
     display: grid;
     grid-template: "emptyIzq titulo-principal  emptyDer" 50px
                    "empty    empty             empty" 20px /
-                    1fr      500px             1fr;
+                    1fr      400px             1fr;
 }
 .display-asignatura {
     display: grid;
     grid-template: "emptyIzq  lbl-asignatura  emptyDer" 25px
                     "emptyIzq txt-asignatura  emptyDer" 50px
                     "empty    empty           empty"    30px /
-                     1fr      500px           1fr;
+                     1fr      400px           1fr;
 }
 .display-orientador {
     display: grid;
     grid-template: "emptyIzq  lbl-orientador  emptyDer" 25px
                     "emptyIzq txt-orientador  emptyDer" 50px
                     "empty    empty           empty"    30px /
-                     1fr      500px           1fr;
+                     1fr      400px           1fr;
 }
 .display-curso {
     display: grid;
     grid-template: "emptyIzq  lbl-curso  emptyDer" 25px
                     "emptyIzq txt-curso  emptyDer" 50px
                     "empty    empty      empty"    30px /
-                     1fr      500px      1fr;
+                     1fr      400px      1fr;
 }
 .display-periodo {
     display: grid;
     grid-template: "emptyIzq  lbl-periodo emptyDer" 25px
                     "emptyIzq txt-periodo emptyDer" 50px
                     "empty    empty       empty"    30px /
-                     1fr      500px       1fr;
+                     1fr      400px       1fr;
 }
 .display-unidad {
     display: grid;
     grid-template: "emptyIzq  lbl-unidad emptyDer" 25px
                     "emptyIzq txt-unidad emptyDer" 50px
                     "empty    empty       empty"    30px /
-                     1fr      500px       1fr;
+                     1fr      400px       1fr;
 }
 .display-topicos {
     display: grid;
     grid-template: "emptyIzq  lbl-topicos emptyDer" 25px
                     "emptyIzq txt-topicos emptyDer" 50px
                     "empty    empty       empty"    30px /
-                     1fr      500px       1fr;
+                     1fr      400px       1fr;
 }
 .display-hilos {
     display: grid;
     grid-template: "emptyIzq  lbl-hilos emptyDer" 25px
                     "emptyIzq txt-hilos emptyDer" 50px
                     "empty    empty     empty"    30px /
-                     1fr      500px     1fr;
+                     1fr      400px     1fr;
 }
 .display-metas-comprension {
     display: grid;
     grid-template: "emptyIzq  lbl-metas-comprension emptyDer" 25px
                     "emptyIzq txt-metas-comprension emptyDer" 50px
                     "empty    empty                 empty"    30px /
-                     1fr      500px                 1fr;
+                     1fr      400px                 1fr;
 }
 .display-actividades-criterios {
     display: grid;
     grid-template: "emptyIzq  lbl-actividades-criterios emptyDer" 25px
                     "emptyIzq txt-actividades-criterios emptyDer" 50px
                     "empty    empty                     empty"    30px /
-                     1fr      500px                     1fr;
+                     1fr      400px                     1fr;
 }
 .display-semana {
     display: grid;
     grid-template: "emptyIzq  lbl-semana emptyDer" 25px
                     "emptyIzq txt-semana emptyDer" 50px
                     "empty    empty      empty"    30px /
-                     1fr      500px      1fr;
+                     1fr      400px      1fr;
 }
 .display-meta-comprension {
     display: grid;
     grid-template: "emptyIzq  lbl-meta-comprension emptyDer" 25px
                     "emptyIzq txt-meta-comprension emptyDer" 50px
                     "empty    empty                empty"    30px /
-                     1fr      500px                1fr;
+                     1fr      400px                1fr;
 }
 .display-desempenyos-comprension {
     display: grid;
     grid-template: "emptyIzq  lbl-desempenyos-comprension emptyDer" 25px
                     "emptyIzq txt-desempenyos-comprension emptyDer" 50px
                     "empty    empty                empty"    30px /
-                     1fr      500px                1fr;
+                     1fr      400px                1fr;
 }
 .display-recursos {
     display: grid;
     grid-template: "emptyIzq  lbl-recursos emptyDer" 25px
                     "emptyIzq txt-recursos emptyDer" 50px
                     "empty    empty                empty"    30px /
-                     1fr      500px                1fr;
+                     1fr      400px                1fr;
 }
 .titulo-principal {
     grid-area: titulo-principal;
