@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Lato', sans-serif;
 }
 body {
     background-color: rgb(240,235,248);
@@ -10,7 +11,7 @@ body {
     width: 100%;
     background-color: blue;
     grid-template: "main-nav-hidden form-box" /
-                    250px            auto;
+                    250px           1fr;
 }
 .main-nav {
     position: fixed;
@@ -22,6 +23,7 @@ body {
     grid-area: main-nav-hidden;
     height: 100vh;
     width: 250px;
+    background-color: rgb(53,104,167);
     visibility: hidden;
 }
 .form-box {
@@ -32,30 +34,17 @@ body {
     grid-template: "empty-izq form-planeacion empty-der" /
                     15px         1fr          15px;
 }
-
-/* .form-planeacion {
-    display: grid;
-    width: 80%;
-    margin: 0 auto;
-    border: 1px solid black;
-    grid-template:  "emptyIzq titulo-principal  empty2" 50px
-                    "emptyInLine1 emptyInline1 emptyInline1" 20px
-                    "emptyIzq2 lbl-asignatura  emptyDer2" 50px
-                    "emptyIzq2 txt-asignatura  emptyDer2" 50px
-                    "emptyIzq2 lbl-orientador emptyDer2" 50px 
-                    "emptyIzq2 txt-orientador  emptyDer2" 50px
-                    "emptyIzq2 lbl-curso       emptyDer2" 50px /
-                     1fr   400px          1fr;
-} */
-
+h1 {
+    text-align: center;
+    margin: 20px 20px 30px 20px;
+}
 .form-planeacion {
     grid-area: form-planeacion;
     border: 1px solid transparent;
     background-color: white;
     margin: 50px;
     border-radius: 15px;
-    width: 100%;
-} */
+}
 .display-titulo-principal {
     display: grid;
     grid-template: "emptyIzq titulo-principal  emptyDer" 50px
@@ -139,6 +128,13 @@ body {
                     "empty    empty                empty"    30px /
                      1fr      400px                1fr;
 }
+.display-fase-secuencia-didactica {
+    display: grid;
+    grid-template:  "emptyIzq  lbl-fase-secuencia-didactica emptyDer" 25px
+                    "emptyIzq  txt-fase-secuencia-didactica emptyDer" 50px
+                    "empty     empty                        empty"    30px /
+                     1fr       400px                        1fr;
+}
 .display-desempenyos-comprension {
     display: grid;
     grid-template: "emptyIzq  lbl-desempenyos-comprension emptyDer" 25px
@@ -152,6 +148,30 @@ body {
                     "emptyIzq txt-recursos emptyDer" 50px
                     "empty    empty                empty"    30px /
                      1fr      400px                1fr;
+}
+select {
+    border: 0;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+    line-height: .5em;
+    /* padding-bottom: -50px; */
+    margin-bottom: 20px;
+    margin-top: 0;
+    font-size: 1em;
+    color: rgb(48,48,48);
+}
+select:focus {
+    outline: none;
+}
+label {
+    font-weight: 700;
+    color: rgb(48,48,48);
+    font-size: 1em;
+}
+textarea {
+    font-family: 'Lato', sans-serif;
+    padding: 6px;
+    font-size: 1em;
 }
 .titulo-principal {
     grid-area: titulo-principal;
@@ -194,6 +214,7 @@ body {
 }
 .txt-topicos {
     grid-area: txt-topicos;
+    height: 50px;
 }
 .lbl-hilos {
     grid-area: lbl-hilos;
@@ -225,6 +246,12 @@ body {
 .txt-meta-comprension {
     grid-area: txt-meta-comprension;
 }
+.lbl-fase-secuencia-didactica {
+    grid-area: lbl-fase-secuencia-didactica;
+}
+.txt-fase-secuencia-didactica {
+    grid-area: txt-fase-secuencia-didactica;
+}
 .lbl-desempenyos-comprension {
     grid-area: lbl-desempenyos-comprension;
 }
@@ -237,3 +264,42 @@ body {
 .txt-recursos {
     grid-area: txt-recursos;
 }
+/* lato-regular - latin */
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/lato-v23-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local(''),
+         url('../fonts/lato-v23-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/lato-v23-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/lato-v23-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/lato-v23-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/lato-v23-latin-regular.svg#Lato') format('svg'); /* Legacy iOS */
+  }
+  /* lato-700 - latin */
+  @font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/lato-v23-latin-700.eot'); /* IE9 Compat Modes */
+    src: local(''),
+         url('../fonts/lato-v23-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/lato-v23-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/lato-v23-latin-700.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/lato-v23-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/lato-v23-latin-700.svg#Lato') format('svg'); /* Legacy iOS */
+  }
+  /* lato-900 - latin */
+  @font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 900;
+    src: url('../fonts/lato-v23-latin-900.eot'); /* IE9 Compat Modes */
+    src: local(''),
+         url('../fonts/lato-v23-latin-900.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/lato-v23-latin-900.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/lato-v23-latin-900.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/lato-v23-latin-900.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/lato-v23-latin-900.svg#Lato') format('svg'); /* Legacy iOS */
+  }

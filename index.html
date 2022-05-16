@@ -10,16 +10,15 @@
 <body>
     <div class="main-content">
         <nav class="main-nav">
-            
         </nav>
         <nav class="main-nav-hidden">
-            
         </nav>
-        <h1 class="titulo-principal">Planeación</h1>
+       <!--  <h1 class="titulo-principal">Planeación</h1> -->
         <div class="form-box">
             <form class="form-planeacion" action="POST">
+                <h1>Planeación de clases</h1>
                 <div class="display-asignatura">
-                    <label class="lbl-asignatura">Asignatura</label>
+                    <label class="lbl-asignatura">Proceso de Formación</label>
                     <select class="txt-asignatura" name="Asignatura" id="">
                         <option value="Español"><label>Español</label></option>
                         <option value="Deportes"><label>Deportes</label></option>
@@ -50,7 +49,10 @@
                 </div>
                 <div class="display-unidad">
                     <label class="lbl-unidad">Unidad</label>
-                    <input class="txt-unidad" type="text">
+                    <select class="txt-unidad" name="unidad">
+                        <option value="unidad-1">Mi cuerpo, mi ser.</option>
+                        <option value="unidad-2">Quien soy?</option>
+                    </select>
                 </div>
                 <div class="display-topicos">
                     <label class="lbl-topicos">Tópicos</label>
@@ -80,10 +82,17 @@
                     </select>
                 </div>
                 <div class="display-meta-comprension">
-                    <label class="lbl-meta-comprension">Meta-Comprensión</label>
+                    <label class="lbl-meta-comprension">Meta de Comprensión</label>
                     <select class="txt-meta-comprension" name="metaComprension" id="">
                         <option value="metaC1">1. Cómo se mantiene vivo mi cuerpo</option>
                         <option value="metaC2">2. Nombra las partes del cuerpo</option>
+                    </select>
+                </div>
+                <div class="display-fase-secuencia-didactica">
+                    <label class="lbl-fase-secuencia-didactica">Fase de Secuencia Didáctica</label>
+                    <select class="txt-fase-secuencia-didactica" name="fase-secuencia-didactica" id="">
+                        <option value="fase-1">Exploración</option>
+                        <option value="fase-2">Investigación</option>
                     </select>
                 </div>
                 <div class="display-desempenyos-comprension">
@@ -98,7 +107,7 @@
                         <option value="recurso3">Cobija</option>
                     </select>
                 </div>
-            </form>
+            </form> 
         </div>  
     </div>
 </body>
