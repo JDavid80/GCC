@@ -9,7 +9,7 @@ body {
 .main-content {
     display: grid;
     width: 100%;
-    background-color: blue;
+    /* background-color: blue; */
     grid-template: "main-nav-hidden form-box" /
                     250px           1fr;
 }
@@ -30,7 +30,7 @@ body {
     grid-area: form-box;
     display: grid;
     width: 100%;
-    background-color: blue;
+    /* background-color: blue; */
     grid-template: "empty-izq form-planeacion empty-der" /
                     15px         1fr          15px;
 }
@@ -268,7 +268,7 @@ textarea {
     .main-content {
         display: grid;
         width: 100%;
-        background-color: blue;
+        /* background-color: blue; */
         grid-template: "main-nav-hidden form-box" /
                         0           1fr;
     }
