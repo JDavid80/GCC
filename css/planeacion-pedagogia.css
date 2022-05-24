@@ -49,14 +49,14 @@ h1 {
     display: grid;
     grid-template: "emptyIzq titulo-principal  emptyDer" 50px
                    "empty    empty             empty" 20px /
-                    1fr      400px             1fr;
+                   1fr      400px           1fr;
 }
 .display-asignatura {
     display: grid;
     grid-template: "emptyIzq  lbl-asignatura  emptyDer" 25px
                     "emptyIzq txt-asignatura  emptyDer" 50px
                     "empty    empty           empty"    30px /
-                     1fr      400px           1fr;
+                    1fr      400px           1fr;
 }
 .display-orientador {
     display: grid;
@@ -263,6 +263,28 @@ textarea {
 }
 .txt-recursos {
     grid-area: txt-recursos;
+}
+@media only screen and (max-width: 1000px) {
+    .main-content {
+        display: grid;
+        width: 100%;
+        background-color: blue;
+        grid-template: "main-nav-hidden form-box" /
+                        0           1fr;
+    }
+    .main-nav {
+        width: 0;
+        background-color: red;
+    }
+    .main-nav-hidden {
+        width: 0;
+        background-color: red;
+    }
+    .form-planeacion {
+        margin: 50px 10px 10px 10px;
+        border-radius: 15px;
+    }
+    
 }
 /* lato-regular - latin */
 @font-face {
