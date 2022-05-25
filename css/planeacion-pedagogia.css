@@ -17,14 +17,45 @@ body {
     position: fixed;
     height: 100vh;
     width: 250px;
-    background-color: rgb(0,123,255);
+    left: 0;
+    background-color: rgb(35,162,208);
 }
 .main-nav-hidden {
-    grid-area: main-nav-hidden;
+    position: fixed;
+    /* grid-area: main-nav-hidden; */
     height: 100vh;
     width: 250px;
-    background-color: rgb(53,104,167);
-    visibility: hidden;
+    background-color: rgb(35,162,208);
+    /* background-color: rgb(53,104,167); */
+    left: -250px;
+    transition: left 1200ms;
+}
+.img-logo {
+    width: 100%;
+}
+.menu-principal {
+    list-style: none;
+}
+.items-principal {
+    margin-top: 20px;
+    font-size: 1.8em;
+    color: white;
+    margin-left: 15px;
+    cursor: pointer;
+}
+.icono-menu {
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+.texto-icono {
+    margin-left: 5px;
+    font-size: .6em;
+    color: white;
+    cursor: pointer;
+}
+a {
+    text-decoration: none;
+    color: white;
 }
 .form-box {
     grid-area: form-box;
@@ -49,109 +80,112 @@ h1 {
     display: grid;
     grid-template: "emptyIzq titulo-principal  emptyDer" 50px
                    "empty    empty             empty" 20px /
-                   1fr      400px           1fr;
+                   1fr       400px           1fr;
 }
 .display-asignatura {
     display: grid;
     grid-template: "emptyIzq  lbl-asignatura  emptyDer" 25px
                     "emptyIzq txt-asignatura  emptyDer" 50px
                     "empty    empty           empty"    30px /
-                    1fr      400px           1fr;
+                    1fr       600px             1fr;
 }
 .display-orientador {
     display: grid;
     grid-template: "emptyIzq  lbl-orientador  emptyDer" 25px
                     "emptyIzq txt-orientador  emptyDer" 50px
                     "empty    empty           empty"    30px /
-                     1fr      400px           1fr;
+                    1fr       600px             1fr;
 }
 .display-curso {
     display: grid;
     grid-template: "emptyIzq  lbl-curso  emptyDer" 25px
                     "emptyIzq txt-curso  emptyDer" 50px
                     "empty    empty      empty"    30px /
-                     1fr      400px      1fr;
+                    1fr       600px             1fr;
 }
 .display-periodo {
     display: grid;
     grid-template: "emptyIzq  lbl-periodo emptyDer" 25px
                     "emptyIzq txt-periodo emptyDer" 50px
                     "empty    empty       empty"    30px /
-                     1fr      400px       1fr;
+                    1fr       600px             1fr;
 }
 .display-unidad {
     display: grid;
     grid-template: "emptyIzq  lbl-unidad emptyDer" 25px
                     "emptyIzq txt-unidad emptyDer" 50px
                     "empty    empty       empty"    30px /
-                     1fr      400px       1fr;
+                    1fr       600px             1fr;
 }
 .display-topicos {
     display: grid;
     grid-template: "emptyIzq  lbl-topicos emptyDer" 25px
                     "emptyIzq txt-topicos emptyDer" 50px
                     "empty    empty       empty"    30px /
-                     1fr      400px       1fr;
+                    1fr       600px             1fr;
 }
 .display-hilos {
     display: grid;
     grid-template: "emptyIzq  lbl-hilos emptyDer" 25px
                     "emptyIzq txt-hilos emptyDer" 50px
                     "empty    empty     empty"    30px /
-                     1fr      400px     1fr;
+                    1fr       600px             1fr;
 }
 .display-metas-comprension {
     display: grid;
     grid-template: "emptyIzq  lbl-metas-comprension emptyDer" 25px
                     "emptyIzq txt-metas-comprension emptyDer" 50px
                     "empty    empty                 empty"    30px /
-                     1fr      400px                 1fr;
+                    1fr       600px             1fr;
 }
 .display-actividades-criterios {
     display: grid;
     grid-template: "emptyIzq  lbl-actividades-criterios emptyDer" 25px
                     "emptyIzq txt-actividades-criterios emptyDer" 50px
                     "empty    empty                     empty"    30px /
-                     1fr      400px                     1fr;
+                    1fr       600px             1fr;
 }
 .display-semana {
     display: grid;
     grid-template: "emptyIzq  lbl-semana emptyDer" 25px
                     "emptyIzq txt-semana emptyDer" 50px
                     "empty    empty      empty"    30px /
-                     1fr      400px      1fr;
+                    1fr       600px             1fr;
 }
 .display-meta-comprension {
     display: grid;
     grid-template: "emptyIzq  lbl-meta-comprension emptyDer" 25px
                     "emptyIzq txt-meta-comprension emptyDer" 50px
                     "empty    empty                empty"    30px /
-                     1fr      400px                1fr;
+                    1fr       600px             1fr;
 }
 .display-fase-secuencia-didactica {
     display: grid;
     grid-template:  "emptyIzq  lbl-fase-secuencia-didactica emptyDer" 25px
                     "emptyIzq  txt-fase-secuencia-didactica emptyDer" 50px
                     "empty     empty                        empty"    30px /
-                     1fr       400px                        1fr;
+                    1fr       600px             1fr;
 }
 .display-desempenyos-comprension {
     display: grid;
     grid-template: "emptyIzq  lbl-desempenyos-comprension emptyDer" 25px
                     "emptyIzq txt-desempenyos-comprension emptyDer" 50px
                     "empty    empty                empty"    30px /
-                     1fr      400px                1fr;
+                    1fr       600px             1fr;
 }
 .display-recursos {
     display: grid;
     grid-template: "emptyIzq  lbl-recursos emptyDer" 25px
                     "emptyIzq txt-recursos emptyDer" 50px
                     "empty    empty                empty"    30px /
-                     1fr      400px                1fr;
+                    1fr       600px             1fr;
+}
+.txt-style {
+    background-color: white;
 }
 select {
     border: 0;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(96,96,96,.7);
     cursor: pointer;
     line-height: .5em;
     /* padding-bottom: -50px; */
@@ -179,12 +213,9 @@ textarea {
 }
 .lbl-asignatura {
     grid-area: lbl-asignatura;
-    text-align: left;
 }
 .txt-asignatura {
     grid-area: txt-asignatura;
-    text-align: left;
-    background-color: white;
 }
 .lbl-orientador {
     grid-area: lbl-orientador;
@@ -265,11 +296,21 @@ textarea {
 .txt-recursos {
     grid-area: txt-recursos;
 }
+.div-boton-guardar {
+    display: flex;
+    justify-content: right;
+}
 .boton-guardar {
-    width: 100%;
-    background-color: red;
-    border-
-    height: 55px;
+    font-size: 1.1em;
+    width: 250px;
+    height: 50px;
+    color: rgb(250,250,250);
+    border-radius: 10px;
+    background-color: rgb(24,128,56);
+    border: none;
+    cursor: pointer;
+    margin-right: 40px;
+    margin-bottom: 40ppx;
 }
 @media only screen and (max-width: 1000px) {
     .main-content {

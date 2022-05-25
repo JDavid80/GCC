@@ -6,41 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Planeación - G.C.C.</title>
     <link rel="stylesheet" href="css/planeacion-pedagogia.css">
+    <link rel="stylesheet" href="icons/all.css">
 </head>
 <body>
     <div class="main-content">
-        <nav class="main-nav">
+        <nav id="mainNav" class="main-nav">
+            <img class="img-logo" src="img/logo_gcc_400x228.png" alt="Logo">
+            <li class="items-principal"><i id="iconoMenu" class="icono-menu fa-solid fa-bars"></i></li>
+            <ul class="menu-principal">
+                <li class="items-principal"><a href="#"><i class="icono-planeacion fa-solid fa-address-book"></i>
+                <label class="texto-icono">Planeación</label></a></li>
+            </ul>
         </nav>
-        <nav class="main-nav-hidden">
-        </nav>
-       <!--  <h1 class="titulo-principal">Planeación</h1> -->
+        <!-- <nav class="main-nav-hidden">
+        </nav> -->
         <div class="form-box">
             <form class="form-planeacion" action="POST">
                 <h1>Planeación de clases</h1>
                 <div class="display-asignatura">
                     <label class="lbl-asignatura">Proceso de Formación</label>
-                    <select class="txt-asignatura" name="Asignatura" id="">
+                    <select class="txt-style txt-asignatura" name="Asignatura" id="">
+                        <option disabled-selected>Selecciona una opción</option>
                         <option value="Español"><label>Español</label></option>
                         <option value="Deportes"><label>Deportes</label></option>
                     </select>   
                 </div>
                 <div class="display-orientador">
                     <label class="lbl-orientador">Orientador</label>
-                    <select class="txt-orientador" name="orientador">
+                    <select class="txt-style txt-orientador" name="orientador">
+                        <option disabled-selected>Selecciona una opción</option>
                         <option value="Natalia">Natalia</option>
                         <option value="Karol">Karol</option>
                     </select>
                 </div>
                 <div class="display-curso">
                     <label class="lbl-curso">Curso</label>
-                    <select class="txt-curso" name="curso">
+                    <select class="txt-style txt-curso" name="curso">
                         <option value="primero-a">Primero - A</option>
                         <option value="segundo-a">Segundo - A</option>
                     </select>
                 </div>
                 <div class="display-periodo">
                     <label class="lbl-periodo">Periodo</label>
-                    <select class="txt-periodo" name="periodo">
+                    <select class="txt-style txt-periodo" name="periodo">
                         <option value="periodo-1">1er. Periodo</option>
                         <option value="periodo-2">2do. Periodo</option>
                         <option value="periodo-3">3er. Periodo</option>
@@ -49,30 +57,30 @@
                 </div>
                 <div class="display-unidad">
                     <label class="lbl-unidad">Unidad</label>
-                    <select class="txt-unidad" name="unidad">
+                    <select class="txt-style txt-unidad" name="unidad">
                         <option value="unidad-1">Mi cuerpo, mi ser.</option>
                         <option value="unidad-2">Quien soy?</option>
                     </select>
                 </div>
                 <div class="display-topicos">
                     <label class="lbl-topicos">Tópicos</label>
-                    <textarea class="txt-topicos" name="topicos" id="" cols="30" rows="10"></textarea>
+                    <textarea class="txt-style txt-topicos" name="topicos" id="" cols="30" rows="10"></textarea>
                 </div>
                 <div class="display-hilos">
                     <label class="lbl-hilos">Hilos Conductores</label>
-                    <textarea class="txt-hilos" name="hilos" id="" cols="30" rows="10"></textarea>
+                    <textarea class="txt-style txt-hilos" name="hilos" id="" cols="30" rows="10"></textarea>
                 </div>
                 <div class="display-metas-comprension">
                     <label class="lbl-metas-comprension">Metas de Comprensión</label>
-                    <textarea class="txt-metas-comprension" name="metasComprension" id="" cols="30" rows="10"></textarea>
+                    <textarea class="txt-style txt-metas-comprension" name="metasComprension" id="" cols="30" rows="10"></textarea>
                 </div>
                 <div class="display-actividades-criterios">
                     <label class="lbl-actividades-criterios">Actividades y Criterios de Evaluación</label>
-                    <textarea class="txt-actividades-criterios" name="actividadesCriterios" id="" cols="30" rows="10"></textarea>
+                    <textarea class="txt-style txt-actividades-criterios" name="actividadesCriterios" id="" cols="30" rows="10"></textarea>
                 </div>
                 <div class="display-semana">
                     <label class="lbl-semana">Semana</label>
-                    <select class="txt-semana" name="Semana" id="">
+                    <select class="txt-style txt-semana" name="Semana" id="">
                         <option value="semana1">Semana 1</option>
                         <option value="semana2">Semana 2</option>
                         <option value="semana3">Semana 3</option>
@@ -83,25 +91,25 @@
                 </div>
                 <div class="display-meta-comprension">
                     <label class="lbl-meta-comprension">Meta de Comprensión</label>
-                    <select class="txt-meta-comprension" name="metaComprension" id="">
+                    <select class="txt-style txt-meta-comprension" name="metaComprension" id="">
                         <option value="metaC1">1. Cómo se mantiene vivo mi cuerpo</option>
                         <option value="metaC2">2. Nombra las partes del cuerpo</option>
                     </select>
                 </div>
                 <div class="display-fase-secuencia-didactica">
                     <label class="lbl-fase-secuencia-didactica">Fase de Secuencia Didáctica</label>
-                    <select class="txt-fase-secuencia-didactica" name="fase-secuencia-didactica" id="">
+                    <select class="txt-style txt-fase-secuencia-didactica" name="fase-secuencia-didactica" id="">
                         <option value="fase-1">Exploración</option>
                         <option value="fase-2">Investigación</option>
                     </select>
                 </div>
                 <div class="display-desempenyos-comprension">
                     <label class="lbl-desempenyos-comprension">Desempeños de Comprensión</label>
-                    <textarea class="txt-desempenyos-comprension" name="desempenyosComprension" id="" cols="30" rows="10"></textarea>
+                    <textarea class="txt-style txt-desempenyos-comprension" name="desempenyosComprension" id="" cols="30" rows="10"></textarea>
                 </div>
                 <div class="display-recursos">
-                    <label class="lbl-recursos">Recursos</label>
-                    <select class="txt-recursos" name="recursos" id="">
+                    <label class="style-ll lbl-recursos">Recursos</label>
+                    <select class="txt-style txt-recursos" name="recursos" id="">
                         <option value="recurso1">Grabadora</option>
                         <option value="recurso2">Rompecabezas del Cuerpo</option>
                         <option value="recurso3">Cobija</option>
@@ -113,5 +121,6 @@
             </form> 
         </div>  
     </div>
+    <script src="js/planeacion-pedagogia.js"></script>
 </body>
 </html>
