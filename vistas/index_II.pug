@@ -1,0 +1,118 @@
+
+
+
+
+
+
+
+
+
+
+//div.main-content
+        nav#mainNav.main-nav
+            div.div-logo
+                img.img-logo(src="./img/logo_gcc_400x228.png")
+            div
+                li.items-principal 
+                    //i#iconoMenu.icono-menu.fa-solid.fa-bars
+            ul.menu-principal
+                li.items-principal
+                    a(href="#")
+                        i.icono-planeacion.fa-regular.fa-address-book
+                            label.texto-icono Planeación
+
+            //<nav class="main-nav-hidden">
+
+        div.form-box
+            form.form-planeacion
+                //action="POST" 
+                h1 Planeación
+                div.display-asignatura
+                    label.lbl-asignatura Proceso de Formación
+                    i#iconoPlusProcesoFormacion.icono-plus.fa-solid.fa-plus
+    
+                    select#idProcesoFormacion.txt-style.txt-asignatura(name="Asignatura")
+                        each contacto in contactos
+                                option(value=`${contacto.id_proceso_formacion}`) #{contacto.nombre_proceso}
+                div#divBoxDisplayAsignatura.div-box-display-asignatura-hidden
+                    div.box-display-asignatura
+                        div.box-center-display-asignatura
+                            label.texto-box Añadir Proceso de Formación
+                            input#inputProcesoFormacion.input-box(type="text", name="")
+                            input#btnProcesoFormacion.button-box(type="button", value="Guardar")
+                            input#btnCancelarProcesoFormacion.button-box-cancelar(type="button" value="Cancelar")
+*****************************
+                //div.display-asignatura
+                    label.lbl-asignatura Orientador
+                    i#iconoPlusOrientador.icono-plus.fa-solid.fa-plus
+                    select#idOrientador.txt-style.txt-asignatura(name="Orientador")
+                        each orientador in orientadores
+                            option(value=`${orientador.id_orientador}`) #{orientador.nombres}
+                //div#divBoxDisplayOrientador.div-box-display-orientador-hidden
+                    div.box-display-orientador
+                        div.box-center-display-orientador
+                            label.texto-box Añadir Orientador
+                            input#inputOrientador.input-box(type="text", name="")
+                            input#btnOrientador.button-box(type="button", value="Guardar")
+                            input#btnCancelarOrientador.button-box-cancelar(type="button" value="Cancelar")
+            //div.display-curso
+                    label.lbl-curso Curso
+                    <select class="txt-style txt-curso" name="curso">
+                        <option value="primero-a">Primero - A</option>
+                        <option value="segundo-a">Segundo - A</option>
+                div.display-periodo
+                    label.lbl-periodo Periodo
+                    <select class="txt-style txt-periodo" name="periodo">
+                        <option value="periodo-1">1er. Periodo</option>
+                        <option value="periodo-2">2do. Periodo</option>
+                        <option value="periodo-3">3er. Periodo</option>
+                        <option value="periodo-4">4to. Periodo</option>
+                div.display-unidad
+                    label.lbl-unidad Unidad
+                    <select class="txt-style txt-unidad" name="unidad">
+                        <option value="unidad-1">Mi cuerpo, mi ser.</option>
+                        <option value="unidad-2">Quien soy?</option>
+                div.display-topicos
+                    label.lbl-topicos Tópicos
+                    <textarea class="txt-style txt-topicos" name="topicos" id="" cols="30" rows="10"></textarea>
+                div.display-hilos
+                    label.lbl-hilos Hilos Conductores
+                    <textarea class="txt-style txt-hilos" name="hilos" id="" cols="30" rows="10"></textarea>
+                div.display-metas-comprension
+                    label.lbl-metas-comprension Metas de Comprensión
+                    <textarea class="txt-style txt-metas-comprension" name="metasComprension" id="" cols="30" rows="10"></textarea>
+                div.display-actividades-criterios
+                    label.lbl-actividades-criterios Actividades y Criterios de Evaluación
+                    <textarea class="txt-style txt-actividades-criterios" name="actividadesCriterios" id="" cols="30" rows="10"></textarea>
+                div.display-semana
+                    label.lbl-semana Semana
+                    <select class="txt-style txt-semana" name="Semana" id="">
+                        <option value="semana1">Semana 1</option>
+                        <option value="semana2">Semana 2</option>
+                        <option value="semana3">Semana 3</option>
+                        <option value="semana4">Semana 4</option>
+                        <option value="semana5">Semana 5</option>
+                        <option value="semana6">Semana 6</option>
+                div.display-meta-comprension
+                    label.lbl-meta-comprension Meta de Comprensión
+                    <select class="txt-style txt-meta-comprension" name="metaComprension" id="">
+                        <option value="metaC1">1. Cómo se mantiene vivo mi cuerpo</option>
+                        <option value="metaC2">2. Nombra las partes del cuerpo</option>
+                div.display-fase-secuencia-didactica
+                    label.lbl-fase-secuencia-didactica Fase de Secuencia Didáctica
+                    <select class="txt-style txt-fase-secuencia-didactica" name="fase-secuencia-didactica" id="">
+                        <option value="fase-1">Exploración</option>
+                        <option value="fase-2">Investigación</option>
+                div.display-desempenyos-comprension
+                    label.lbl-desempenyos-comprension Desempeños de Comprensión
+                    <textarea class="txt-style txt-desempenyos-comprension" name="desempenyosComprension" id="" cols="30" rows="10"></textarea>
+                div.display-recursos
+                    label.style-ll .lbl-recursos Recursos
+                    <select class="txt-style txt-recursos" name="recursos" id="">
+                        <option value="recurso1">Grabadora</option>
+                        <option value="recurso2">Rompecabezas del Cuerpo</option>
+                        <option value="recurso3">Cobija</option>
+                div.div-boton-guardar
+                    <input class="boton-guardar" type="button" value="Guardar Planeación">
+    //<script src="js/planeacion-pedagogia.js"></script>
+    
