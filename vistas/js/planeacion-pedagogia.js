@@ -1,9 +1,10 @@
-
-
 /* let mainNav = document.getElementById("mainNav");
 let iconoMenu = document.getElementById("iconoMenu");*/
+alert("Holis");
+let idProcesoFormacion = document.getElementById("idProcesoFormacion");
 
-let idProcesoFormacion = document.getElementById("idProcesoFormacion"); 
+
+
 
 /* iconoMenu.addEventListener("click", function() {
     mainNav.classList.remove("main-nav");
@@ -12,13 +13,13 @@ let idProcesoFormacion = document.getElementById("idProcesoFormacion");
 
 let divBoxDisplayAsignatura = document.getElementById("divBoxDisplayAsignatura");
 let divBoxDisplayOrientador = document.getElementById("divBoxDisplayOrientador");
-let iconoPlusProcesoFormacion = document.getElementById('iconoPlusProcesoFormacion'); 
+let iconoPlusProcesoFormacion = document.getElementById('iconoPlusProcesoFormacion');
 let iconoPlusOrientador = document.getElementById('iconoPlusOrientador');
 
 /* const inputProcesoFormacion = document.querySelector('#inputProcesoFormacion'); */
 //const inputOrientador = document.querySelector('#inputOrientador');
 
- iconoPlusProcesoFormacion.addEventListener('click', function() {
+iconoPlusProcesoFormacion.addEventListener('click', function() {
     divBoxDisplayAsignatura.classList.remove('div-box-input-single-hidden');
     divBoxDisplayAsignatura.classList.add('div-box-input-single');
 });
@@ -36,18 +37,17 @@ let btnCancelarProcesoFormacion = document.getElementById('btnCancelarProcesoFor
 let btnOrientador = document.getElementById('btnOrientador');
 let btnCancelarOrientador = document.getElementById('btnCancelarOrientador');
 
-btnProcesoFormacion.addEventListener('click', function() { 
+btnProcesoFormacion.addEventListener('click', function() {
     if (`${inputProcesoFormacion.value}`.trim() == "") {
         alert("No se puede guardar un proceso de formación vacío.");
-    }
-    else {
+    } else {
         window.location.href = `agregar/${inputProcesoFormacion.value}`
         divBoxDisplayAsignatura.classList.add("div-box-input-single-hidden");
         divBoxDisplayAsignatura.classList.remove('div-box-input-single');
-    }       
+    }
 })
 
- /* btnOrientador.addEventListener('click', function() { 
+/* btnOrientador.addEventListener('click', function() { 
     if (`${inputOrientador.value}`.trim() == "") {
         alert("No se puede guardar un espacio vacío para orientador.");
     }

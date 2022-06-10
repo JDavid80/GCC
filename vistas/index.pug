@@ -27,8 +27,8 @@ html(lang="en")
                         label.lbl-asignatura Proceso de Formación
                         i#iconoPlusProcesoFormacion.icono-plus.fa-solid.fa-plus
                         select#idProcesoFormacion.txt-style.txt-asignatura(name="Asignatura")
-                            each procesoFormacion in procesosFormacion
-                                option(value=`${procesoFormacion.id_proceso_formacion}`) #{procesoFormacion.nombre_proceso}
+
+                            
                     div#divBoxDisplayAsignatura.div-box-input-single-hidden
                         div.box-display-asignatura
                             div.box-center-display-asignatura
@@ -47,4 +47,5 @@ html(lang="en")
                                 input#inputOrientador.input-box(type="text", name="")
                                 input#btnOrientador.button-box(type="button", value="Guardar")
                                 input#btnCancelarOrientador.button-box-cancelar(type="button" value="Cancelar")
-        script(src="./js/planeacion-pedagogia.js")
+    
+        <script src="js/prueba.js"></script>
