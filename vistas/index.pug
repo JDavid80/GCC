@@ -6,8 +6,7 @@ html(lang="en")
         meta(name='viewport', content='width=device-width', initial-scale='1.0')
         title= 'Planeación - G.C.C.'
         link(rel="stylesheet" href='./css/planeacion-pedagogia.css' type='text/css')
-        link(rel="stylesheet" href='./icons/all.css')
-         
+        link(rel="stylesheet" href='./icons/all.css')    
     body
         div.main-content
             nav#mainNav.main-nav
@@ -28,8 +27,8 @@ html(lang="en")
                         label.lbl-asignatura Proceso de Formación
                         i#iconoPlusProcesoFormacion.icono-plus.fa-solid.fa-plus
                         select#idProcesoFormacion.txt-style.txt-asignatura(name="Asignatura")
-                            each contacto in contactos
-                                option(value=`${contacto.id_proceso_formacion}`) #{contacto.nombre_proceso}
+                            each procesoFormacion in procesosFormacion
+                                option(value=`${procesoFormacion.id_proceso_formacion}`) #{procesoFormacion.nombre_proceso}
                     div#divBoxDisplayAsignatura.div-box-input-single-hidden
                         div.box-display-asignatura
                             div.box-center-display-asignatura
@@ -41,8 +40,6 @@ html(lang="en")
                         label.lbl-asignatura Orientador
                         i#iconoPlusOrientador.icono-plus.fa-solid.fa-plus
                         select#idOrientador.txt-style.txt-asignatura(name="Asignatura")
-                            each orientador in orientadores
-                                option(value=`${orientador.id_orientador}`) #{orientador.nombres}
                     div#divBoxDisplayOrientador.div-box-display-orientador-hidden
                         div.box-display-orientador
                             div.box-center-display-orientador

@@ -9,7 +9,7 @@ const cont_Proceso_Formacion=require('../controllers/controllerProcesosFormacion
 
 //ruta_Procesoformacion.get("/",cont_Proceso_Formacion.Listar_Proceso_Formacion);
 //ruta_Procesoformacion.get("/",cont_Proceso_Formacion.Listar_Proceso_Formacion, cont_Proceso_Formacion.Listar_Orientadores);
-ruta_Procesoformacion.get("/", cont_Proceso_Formacion.Listar_Orientadores);
+ruta_Procesoformacion.get("/", cont_Proceso_Formacion.Listar_Proceso_Formacion);
 ruta_Procesoformacion.get('/agregar/:dato',cont_Proceso_Formacion.Guardar_Proceso_Formacion);
 
 module.exports=ruta_Procesoformacion;

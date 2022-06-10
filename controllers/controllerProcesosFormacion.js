@@ -3,6 +3,7 @@
 //import conexionBD from '../database/conexion';
 const { request } = require('express');
 const conexion=require('../database/conexion');
+let orientadores;
 
 /* app.use(conexion); */
 
@@ -10,15 +11,16 @@ const controlador={}
 
 controlador.Listar_Proceso_Formacion=(req,res)=>{
     const sql = 'SELECT * FROM tb_proceso_formacion'
-    conexion.query(sql, function(err, result, field) {
-        res.render('index',{contactos:result});
+    conexion.query(sql, function(err, data, field) {
+        //procesosFormacion = data;
+        res.render('index',{procesosFormacion:data});
     });
 }
 
 controlador.Listar_Orientadores = (req, res) => {
     const sql = 'SELECT * FROM tb_orientador'
     conexion.query(sql, function(err, result, field) {
-        res.render('index', {orientadores:result});
+        res.render('index', {procesosFormacion, orientadores:result});
     });
 }
 
