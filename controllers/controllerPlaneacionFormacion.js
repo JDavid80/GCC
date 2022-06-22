@@ -67,6 +67,13 @@ controlador.Listar_Recursos = (req, res) => {
     });
 }
 
+controlador.Listar_Planeaciones = (req, res) => {
+    const sql = 'SELECT * FROM tb_planeaciones_formacion'
+    conexion.query(sql, function(err, data) {
+        res.json(data);
+    });
+}
+
 controlador.Guardar_Proceso_Formacion = (req, res) => {
     let inputProcesoFormacion = req.body.dato;
     const sql = `INSERT INTO tb_procesos_formacion (nombre_proceso) VALUES ("${inputProcesoFormacion}")`
@@ -181,5 +188,25 @@ controlador.Guardar_Recurso = (req, res) => {
     });
 }
 
+controlador.Guardar_Planeacion = (req, res) => {
+    let {orientador, desempenyos_comprension} = req.body;
+
+    console.log(orientador);
+    try{
+        /* const sql = `INSERT INTO tb_planeaciones_formacion (orientador, desempenyos_comprension) VALUES ("${orientador}", "${desempenyos_comprension}")`; */
+        const sql = `INSERT INTO tb_planeaciones_formacion (orientador) VALUES ("${orientador}")`;
+        conexion.query(sql, function(err, result, filed) {
+            if(!err) {
+                res.send("La planeación se registró con éxito");
+            }
+            else {
+                console.log(err);
+            }
+        });
+    }
+    catch(err) {
+        console.log(err);
+    }
+}
 
 module.exports = controlador;

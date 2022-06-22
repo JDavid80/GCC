@@ -14,6 +14,7 @@ rutaPlaneacionFormacion.get("/Listar_Unidades", controller_PlaneacionFormacion.L
 rutaPlaneacionFormacion.get("/Listar_Semanas", controller_PlaneacionFormacion.Listar_Semanas);
 rutaPlaneacionFormacion.get("/Listar_Fases_Secuencia", controller_PlaneacionFormacion.Listar_Fases_Secuencia);
 rutaPlaneacionFormacion.get("/Listar_Recursos", controller_PlaneacionFormacion.Listar_Recursos);
+rutaPlaneacionFormacion.get("/Listar_Planeaciones", controller_PlaneacionFormacion.Listar_Planeaciones);
 rutaPlaneacionFormacion.post('/Guardar_Proceso_Formacion', controller_PlaneacionFormacion.Guardar_Proceso_Formacion);
 rutaPlaneacionFormacion.post('/Guardar_Orientador', controller_PlaneacionFormacion.Guardar_Orientador);
 rutaPlaneacionFormacion.post('/Guardar_Curso', controller_PlaneacionFormacion.Guardar_Curso);
@@ -22,5 +23,6 @@ rutaPlaneacionFormacion.post('/Guardar_Unidad', controller_PlaneacionFormacion.G
 rutaPlaneacionFormacion.post('/Guardar_Semana', controller_PlaneacionFormacion.Guardar_Semana);
 rutaPlaneacionFormacion.post('/Guardar_Fase_Secuencia', controller_PlaneacionFormacion.Guardar_Fase_Secuencia);
 rutaPlaneacionFormacion.post('/Guardar_Recurso', controller_PlaneacionFormacion.Guardar_Recurso);
+rutaPlaneacionFormacion.post('/Guardar_Planeacion', controller_PlaneacionFormacion.Guardar_Planeacion);
 
 module.exports = rutaPlaneacionFormacion;

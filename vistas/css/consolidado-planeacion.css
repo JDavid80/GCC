@@ -2,9 +2,19 @@ div.table {
     
 }
 .table-planeacion {
-    border: 1px solid black;
+    border: 1px solid gray;
     border-collapse: collapse;
+    position: absolute;
+    left: 300px;
+    top: 80px;
 }
 th {
     border: 1px solid black;
+    font-weight: 900;
+}
+td {
+    border: 1px solid gray;
+}
+th, td {
+    padding: 15px;
 }

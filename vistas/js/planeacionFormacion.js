@@ -57,6 +57,7 @@ let btnUnidad = document.getElementById('btnUnidad');
 let btnSemana = document.getElementById('btnSemana');
 let btnFaseSecuencia = document.getElementById('btnFaseSecuencia');
 let btnRecurso = document.getElementById('btnRecurso');
+let btnGuardarPlaneacion = document.getElementById('btnGuardarPlaneacion');
 
 btnCancelarProcesoFormacion.addEventListener('click', function() {
     divBoxDisplayAsignatura.classList.add("div-box-input-single-hidden");
@@ -121,8 +122,35 @@ datos.append('ident',5454554);
     }
 })
 
+btnGuardarPlaneacion.addEventListener('click', function() {
+    if(validacion) {
+        let orientador = document.getElementById('idOrientador');
+        let selectedOption = orientador
+        console.log(selectedOption);
+        /* let selectedOption = selectedOption.value; */
+        /* let orientador = document.getElementById('selectedOption'); */
+        let DesempenyosComprension = document.getElementById('inputDesempenyosComprension').value;
 
+        let datos = new URLSearchParams();
 
+        datos.append('orientador', orientador);
+        datos.append('desempenyos_comprension', DesempenyosComprension);
+
+        fetch('/Guardar_Planeacion', 
+        {
+            method: 'post',
+            body: datos
+        })
+        .then(res => res.text())
+        .then(data => {
+            alert(data);
+        });
+    }
+});
+
+function validacion() {
+    return true;
+}
 btnOrientador.addEventListener('click', function() {
     if(`${inputNombresOrientador.value}`.trim() == "") {
         alert("No se puede guardar un orientador vacío");
@@ -320,6 +348,7 @@ unidades();
 semanas();
 fasesSecuencia();
 recursos();
+planeacion();
 
 function procesoFormacion() {
 
@@ -425,4 +454,17 @@ function recursos() {
         }
         document.getElementById('idRecurso').innerHTML = sintaxisHtml;
     });
+}
+
+function planeacion() {
+    let sintaxisHtml = '';
+
+    fetch('/Listar_Planeaciones'
+    .then(response => response.json())
+    .then(function(data) {
+        for(let i = 0; i < data.length; i++) {
+            sintaxisHtml += ``
+        }
+    })
+    );
 }

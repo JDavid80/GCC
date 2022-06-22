@@ -91,7 +91,7 @@ html(lang="en")
                                 input#btnCancelarUnidad.button-box-cancelar(type="button" value="Cancelar")
                     div.textarea-question
                         label.lbl-textarea Tópicos
-                        <textarea class="txt-textarea" name="topicos" id="" cols="30" rows="10"></textarea>
+                        textarea#idTopico(class="txt-textarea", name="topicos", cols="30", rows="10")
                     div.textarea-question
                         label.lbl-textarea Hilos Conductores
                         <textarea class="txt-textarea" name="hilos" id="" cols="30" rows="10"></textarea>
@@ -128,7 +128,7 @@ html(lang="en")
                                 input#btnCancelarFaseSecuencia.button-box-cancelar(type="button" value="Cancelar")
                     div.textarea-question
                         label.lbl-textarea Desempeños de Comprensión
-                        <textarea class="txt-textarea" name="desempeniosComprension" id="" cols="30" rows="10"></textarea>
+                        textarea#inputDesempenyosComprension.txt-textarea(name="desempeniosComprension", cols="30", rows="10")
                     div.single-question
                         label.lbl-question Recursos
                         i#iconoPlusRecurso.icono-plus.fa-solid.fa-plus
@@ -141,5 +141,5 @@ html(lang="en")
                                 input#btnRecurso.button-box(type="button", value="Guardar")
                                 input#btnCancelarRecurso.button-box-cancelar(type="button" value="Cancelar")
                     div.div-boton-guardar
-                        <input class="boton-guardar" type="button" value="Guardar Planeación">
+                        input#btnGuardarPlaneacion.boton-guardar(type="button", value="Guardar Planeación") 
         <script src="js/planeacionFormacion.js"></script>
