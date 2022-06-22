@@ -1,6 +1,5 @@
 /* let mainNav = document.getElementById("mainNav");
 let iconoMenu = document.getElementById("iconoMenu");*/
-alert("Holis");
 let idProcesoFormacion = document.getElementById("idProcesoFormacion");
 
 
@@ -23,10 +22,10 @@ iconoPlusProcesoFormacion.addEventListener('click', function() {
     divBoxDisplayAsignatura.classList.remove('div-box-input-single-hidden');
     divBoxDisplayAsignatura.classList.add('div-box-input-single');
 });
-/* iconoPlusOrientador.addEventListener('click', function() {
-    divBoxDisplayOrientador.classList.remove('div-box-display-orientador-hidden');
-    divBoxDisplayOrientador.classList.add('div-box-display-orientador');
-}); */
+iconoPlusOrientador.addEventListener('click', function() {
+    divBoxDisplayOrientador.classList.remove('div-box-input-single-hidden');
+    divBoxDisplayOrientador.classList.add('div-box-input-single');
+});
 /* iconoPlusOrientador.addEventListener('click', function() {
     divBoxDisplayOrientador.classList.remove("div-box-display-orientador-hidden");
     divBoxDisplayOrientador.classList.add('div-box-display-orientador');
@@ -38,6 +37,7 @@ let btnOrientador = document.getElementById('btnOrientador');
 let btnCancelarOrientador = document.getElementById('btnCancelarOrientador');
 
 btnProcesoFormacion.addEventListener('click', function() {
+    alert("Holis II");
     if (`${inputProcesoFormacion.value}`.trim() == "") {
         alert("No se puede guardar un proceso de formación vacío.");
     } else {

@@ -1,7 +1,6 @@
 const mysql = require('mysql');
-//import mysql from 'mysql';
 
-/* Conexión */
+/* Conexión a la BD*/
 const conexion = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -9,6 +8,7 @@ const conexion = mysql.createConnection({
     database: 'bdgcc'
 });
 
+/* Prueba de Conexión */
 conexion.connect(err => {
     if(err) {
         throw err

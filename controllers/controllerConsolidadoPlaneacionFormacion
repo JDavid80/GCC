@@ -1,0 +1,10 @@
+const conexion = require('../database/conexion');
+
+const controlador = {}
+
+controlador.Listar_Planeacion_Formacion = (req, res) => {
+    const sql = 'SELECT * FROM tb_planeacion_formacion'
+    conexion.query(sql, function(err, data) {
+        res.json(data);
+    });
+}

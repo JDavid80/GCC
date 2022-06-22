@@ -6,6 +6,7 @@ html(lang="en")
         meta(name='viewport', content='width=device-width', initial-scale='1.0')
         title= 'Planeación - G.C.C.'
         link(rel="stylesheet" href='./css/planeacion-pedagogia.css' type='text/css')
+        link(rel="stylesheet" href='./css/consolidado-planeacion.css' type='text/css')
         link(rel="stylesheet" href='./icons/all.css')    
     body
         div.main-content
@@ -21,16 +22,20 @@ html(lang="en")
                             i.icono-planeacion.fa-regular.fa-address-book
                                 label.texto-icono Planeación
                     li.items-principal
-                        a(href="/consolidado")
+                        a(href="#")
                             i.icono-planeacion.fa-solid.fa-book
                                 label.texto-icono Consolidado
-                    //li.items-principal
-                        a(href="./consolidado.pug")
-                            i.icono-planeacion.fa-solid.fa-book
-                                label.texto-icono Consolidado
-            div.form-box
-                form.form-planeacion
-                    h1 Planeación
+
+            div.div-table        
+                table.table-planeacion
+                    th Curso
+                    th Unidad
+                    th Tópicos
+                    tbody#tabla
+
+
+                //form.form-planeacion
+                    h1 Consolidado
                     div.single-question
                         label.lbl-question Proceso de Formación
                         i#iconoPlusProcesoFormacion.icono-plus.fa-solid.fa-plus
@@ -51,9 +56,9 @@ html(lang="en")
                             div.box-center-display-orientador
                                 label.texto-box Añadir Orientador
                                 label.texto-box Nombres
-                                input#inputNombresOrientador.input-box(type="text", name="")
+                                input#inputOrientador.input-box(type="text", name="")
                                 label.texto-box Primer Apellido
-                                input#inputPrimerApellidoOrientador.input-box(type="text", name="")
+                                input#inputOrientador.input-box(type="text", name="")
                                 input#btnOrientador.button-box(type="button", value="Guardar")
                                 input#btnCancelarOrientador.button-box-cancelar(type="button" value="Cancelar")
                     div.single-question
@@ -142,4 +147,4 @@ html(lang="en")
                                 input#btnCancelarRecurso.button-box-cancelar(type="button" value="Cancelar")
                     div.div-boton-guardar
                         <input class="boton-guardar" type="button" value="Guardar Planeación">
-        <script src="js/planeacionFormacion.js"></script>
+        <script src="js/consolidadoPlaneacion.js"></script>

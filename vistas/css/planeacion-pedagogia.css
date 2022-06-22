@@ -87,17 +87,11 @@ h1 {
 .icono-plus {
     grid-area: icono-plus;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 30px;
     margin-left: 10px;
 }
-.display-asignatura {
-    display: grid;
-    grid-template: "emptyIzq  lbl-asignatura  icono-plus  emptyDer" 25px
-                    "emptyIzq txt-asignatura  empty-icon  emptyDer" 50px
-                    "empty    empty           empty       empty"    30px /
-                    1fr       600px            16px       1fr;
-}
-.display-orientador {
+
+/*.display-orientador {
     display: grid;
     grid-template: "emptyIzq  lbl-orientador  icono-plus emptyDer" 25px
                     "emptyIzq txt-orientador  empty-icon emptyDer" 50px
@@ -124,14 +118,23 @@ h1 {
                     "emptyIzq txt-unidad emptyDer" 50px
                     "empty    empty       empty"    30px /
                     1fr       600px             1fr;
-}
-.display-topicos {
+}*/
+.single-question {
     display: grid;
-    grid-template: "emptyIzq  lbl-topicos emptyDer" 25px
-                    "emptyIzq txt-topicos emptyDer" 50px
-                    "empty    empty       empty"    30px /
+    grid-template: "emptyIzq  lbl-question  icono-plus  emptyDer" 25px
+                    "emptyIzq txt-select    empty-icon  emptyDer" 50px
+                    "empty    empty           empty       empty"    25px /
+                    1fr       600px            16px       1fr;
+}
+.textarea-question {
+    display: grid;
+    grid-template: "emptyIzq  lbl-textarea emptyDer" 25px
+                    "emptyIzq txt-textarea emptyDer" 50px
+                    "empty    empty       empty"    50px /
                     1fr       600px             1fr;
 }
+
+/*
 .display-hilos {
     display: grid;
     grid-template: "emptyIzq  lbl-hilos emptyDer" 25px
@@ -187,7 +190,7 @@ h1 {
                     "emptyIzq txt-recursos emptyDer" 50px
                     "empty    empty                empty"    30px /
                     1fr       600px             1fr;
-}
+}*/
 .txt-style {
     background-color: white;
 }
@@ -219,11 +222,13 @@ textarea {
     grid-area: titulo-principal;
     text-align: center;
 }
-.lbl-asignatura {
-    grid-area: lbl-asignatura;
+.lbl-question {
+    grid-area: lbl-question;
+    margin-left: 8px;
 }
-.txt-asignatura {
-    grid-area: txt-asignatura;
+.txt-select {
+    grid-area: txt-select;
+    margin-left: 8px;
 }
 .lbl-orientador {
     grid-area: lbl-orientador;
@@ -249,11 +254,12 @@ textarea {
 .txt-unidad {
     grid-area: txt-unidad;
 }
-.lbl-topicos {
-    grid-area: lbl-topicos;
+.lbl-textarea {
+    grid-area: lbl-textarea;
 }
-.txt-topicos {
-    grid-area: txt-topicos;
+.txt-textarea {
+    background-color: white;
+    grid-area: txt-textarea;
     height: 50px;
 }
 .lbl-hilos {
@@ -351,7 +357,8 @@ textarea {
     background-color: rgb(48,48,48, .3);
     z-index: 10;
 }
-.box-display-asignatura {
+/* .box-display-asignatura { */
+.box-input-single {
     display: flex;
     width: 500px;
     height: 170px;
@@ -360,10 +367,10 @@ textarea {
     align-items: center;
     border-radius: 10px;
 }
-.box-display-orientador {
+.box-input-orientador {
     display: flex;
     width: 500px;
-    height: 170px;
+    height: 280px;
     background-color: white;
     justify-content: center;
     align-items: center;

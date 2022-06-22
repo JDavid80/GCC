@@ -1,20 +1,16 @@
-//import express from 'express';
-//import ruta_Procesoformacion from './routes/routeProcesosFormacion';
 const express = require('express');
-//import ruta_Procesoformacion from './routes/routeProcesosFormacion.js';
-const procesosFormacion = require('./routes/routeProcesosFormacion');
-//import { conectar, agregarProcesoFormacion, agregarOrientador, obtenerProcesosFormacion, obtenerOrientadores } from './src/mysql_conector.js';
-//const procesosFormacion = require('./routes/routeProcesoformacion');
+const bodyparser= require('body-parser');
+const planeacionFormacion = require('./routes/routePlaneacionFormacion');
 
-let todos;
-let orientadores;
 const app = express();
-
-
 
 //Configuración de PUG
 app.set('views', './vistas');
 app.set('view engine', 'pug');
+
+// se configura para recibir parametros de formulario
+ app.use(bodyparser.json());
+ app.use(bodyparser.urlencoded({extended:false}));
 
 //Configuración de archivos estáticos
 app.use(express.static('./vistas'));
@@ -23,17 +19,7 @@ app.use(express.static('./css'));
 app.use(express.static('./img'));
 app.use(express.static('./js'));
 
-/* app.get('/', function(req, res) {
-    res.send('Aplicación iniciada');
-}); */
-
-
-
-app.use(procesosFormacion);
-
-
-
-
+app.use(planeacionFormacion);
 
 app.listen('8000', function() {
     console.log('Aplicación iniciada en el puerto 8000');
