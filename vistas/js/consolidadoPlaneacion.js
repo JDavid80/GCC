@@ -1,4 +1,4 @@
-
+/* 
 listarPlaneaciones();
 
 
@@ -8,20 +8,22 @@ function listarPlaneaciones() {
   
             fetch('/Listar_Planeaciones',
             {
-                method:'get',
-               
+                method:'get' 
             })
             .then(res => res.json())
             .then(data => {
+                console.log(data);
+                
                 data.forEach(element => {
-                    tabla+=`<tr><td>${element.id_planeacion}<td><td>${element.primer_apellido}<td></td><tr>`
+                    tabla+=`<tr><td>${element.nombres}</td><td>${element.nombre}</td></tr>`
  
     
                 });
+                
 
                document.getElementById('tabla').innerHTML=tabla;
             });
           
        
     
-}
+} */

@@ -1,5 +1,5 @@
 
-let idProcesoFormacion = document.getElementById("idProcesoFormacion");
+//let idProcesoFormacion = document.getElementById("idProcesoFormacion");
 
 let divBoxDisplayAsignatura = document.getElementById("divBoxDisplayAsignatura");
 let divBoxDisplayOrientador = document.getElementById("divBoxDisplayOrientador");
@@ -124,17 +124,13 @@ datos.append('ident',5454554);
 
 btnGuardarPlaneacion.addEventListener('click', function() {
     if(validacion) {
-        let orientador = document.getElementById('idOrientador');
-        let selectedOption = orientador
-        console.log(selectedOption);
-        /* let selectedOption = selectedOption.value; */
-        /* let orientador = document.getElementById('selectedOption'); */
-        let DesempenyosComprension = document.getElementById('inputDesempenyosComprension').value;
-
         let datos = new URLSearchParams();
 
-        datos.append('orientador', orientador);
-        datos.append('desempenyos_comprension', DesempenyosComprension);
+        datos.append('idProcesoFormacion', document.getElementById('idProcesoFormacion').value);
+        datos.append('idOrientador', document.getElementById('idOrientador').value);
+        datos.append('idCurso', document.getElementById('idCurso').value);
+        datos.append('idPeriodo', document.getElementById('idPeriodo').value);
+        datos.append('idUnidad', document.getElementById('idUnidad').value);
 
         fetch('/Guardar_Planeacion', 
         {
@@ -348,7 +344,7 @@ unidades();
 semanas();
 fasesSecuencia();
 recursos();
-planeacion();
+/* planeacion(); */
 
 function procesoFormacion() {
 
@@ -358,7 +354,7 @@ function procesoFormacion() {
         .then(response => response.json())
         .then(function(data) {
             for (var i = 0; i < data.length; i++) {
-                sintaxisHtml += `<option value='${data[i].id_numero_proceso}'>${data[i].nombre_proceso}</option>`;
+                sintaxisHtml += `<option value='${data[i].id_proceso_formacion}'>${data[i].nombre_proceso}</option>`;
             }
             document.getElementById('idProcesoFormacion').innerHTML = sintaxisHtml;
         });
@@ -456,15 +452,14 @@ function recursos() {
     });
 }
 
-function planeacion() {
+/* function planeacion() {
     let sintaxisHtml = '';
 
-    fetch('/Listar_Planeaciones'
+    fetch('/Listar_Planeaciones')
     .then(response => response.json())
     .then(function(data) {
         for(let i = 0; i < data.length; i++) {
             sintaxisHtml += ``
         }
-    })
-    );
-}
+    });
+} */

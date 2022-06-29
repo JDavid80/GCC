@@ -68,7 +68,11 @@ controlador.Listar_Recursos = (req, res) => {
 }
 
 controlador.Listar_Planeaciones = (req, res) => {
-    const sql = 'SELECT * FROM tb_planeaciones_formacion'
+    const sql = 'SELECT nombre_proceso, nombres, nombre FROM tb_planeaciones_formacion ' +
+    'INNER JOIN tb_proceso_formacion ON id_proceso_formacion = proceso_formacion' +
+    'INNER JOIN tb_orientadores ON id_orientador = orientador ' +
+    'INNER JOIN tb_periodos ON id_periodo = periodo';
+    
     conexion.query(sql, function(err, data) {
         res.json(data);
     });
@@ -76,6 +80,7 @@ controlador.Listar_Planeaciones = (req, res) => {
 
 controlador.Guardar_Proceso_Formacion = (req, res) => {
     let inputProcesoFormacion = req.body.dato;
+
     const sql = `INSERT INTO tb_procesos_formacion (nombre_proceso) VALUES ("${inputProcesoFormacion}")`
     conexion.query(sql, function(err, result, filed) {
         if (err) {
@@ -189,12 +194,16 @@ controlador.Guardar_Recurso = (req, res) => {
 }
 
 controlador.Guardar_Planeacion = (req, res) => {
-    let {orientador, desempenyos_comprension} = req.body;
+    let idProcesoFormacion = req.body.idProcesoFormacion;
+    let idOrientador = req.body.idOrientador;
+    let idCurso = req.body.idCurso;
+    let idPeriodo = req.body.idPeriodo;
+    let idUnidad = req.body.idUnidad;
 
-    console.log(orientador);
     try{
-        /* const sql = `INSERT INTO tb_planeaciones_formacion (orientador, desempenyos_comprension) VALUES ("${orientador}", "${desempenyos_comprension}")`; */
-        const sql = `INSERT INTO tb_planeaciones_formacion (orientador) VALUES ("${orientador}")`;
+        const sql = `INSERT INTO tb_planeaciones_formacion (proceso_formacion, orientador, curso, periodo, unidad) 
+        VALUES 
+        ('${idProcesoFormacion}', '${idOrientador}', '${idCurso}', '${idPeriodo}', '${idUnidad}')`;
         conexion.query(sql, function(err, result, filed) {
             if(!err) {
                 res.send("La planeación se registró con éxito");

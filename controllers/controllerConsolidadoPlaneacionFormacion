@@ -2,9 +2,11 @@ const conexion = require('../database/conexion');
 
 const controlador = {}
 
-controlador.Listar_Planeaciones = (req, res) => {
-    const sql = 'SELECT * FROM tb_planeacion_formacion'
+/* controlador.Listar_Planeaciones = (req, res) => {
+    const sql = 'SELECT nombres, nombre FROM tb_planeaciones_formacion ' +
+    'INNER JOIN tb_orientadores ON id_orientador = orientador ' +
+    'INNER JOIN tb_periodos ON id_periodo = periodo';
     conexion.query(sql, function(err, data) {
         res.json(data);
     });
-}
+} */
