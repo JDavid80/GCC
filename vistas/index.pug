@@ -50,9 +50,12 @@ html(lang="en")
                         div.box-input-orientador
                             div.box-center-display-orientador
                                 label.texto-box Añadir Orientador
+                                select#idTipoDocumento.txt-select
                                 label.texto-box Nombres
                                 input#inputNombresOrientador.input-box(type="text", name="")
                                 label.texto-box Primer Apellido
+                                input#inputPrimerApellidoOrientador.input-box(type="text", name="")
+                                label.texto-box Segundo Apellido
                                 input#inputPrimerApellidoOrientador.input-box(type="text", name="")
                                 input#btnOrientador.button-box(type="button", value="Guardar")
                                 input#btnCancelarOrientador.button-box-cancelar(type="button" value="Cancelar")
@@ -91,7 +94,15 @@ html(lang="en")
                                 input#btnCancelarUnidad.button-box-cancelar(type="button" value="Cancelar")
                     div.textarea-question
                         label.lbl-textarea Tópicos
+                        i#iconoPlusTopico.icono-plus.fa-solid.fa-plus
                         textarea#idTopico(class="txt-textarea", name="topicos", cols="30", rows="10")
+                    div#divBoxDisplayTopico.div-box-input-single-hidden
+                        div.box-input-single
+                            div.box-center-display-Topicos
+                                label.texto-box Añadir Tópico
+                                input#inputTopico.input-box(type="text", name="")
+                                input#btnTopico.button-box(type="button", value="Guardar")
+                                input#btnCancelarTopico.button-box-cancelar(type="button" value="Cancelar")
                     div.textarea-question
                         label.lbl-textarea Hilos Conductores
                         <textarea class="txt-textarea" name="hilos" id="" cols="30" rows="10"></textarea>
@@ -141,5 +152,5 @@ html(lang="en")
                                 input#btnRecurso.button-box(type="button", value="Guardar")
                                 input#btnCancelarRecurso.button-box-cancelar(type="button" value="Cancelar")
                     div.div-boton-guardar
-                        input#btnGuardarPlaneacion.boton-guardar(type="button", value="Guardar Planeación") 
+                        input#btnGuardarPlaneacion.boton-guardar(type="button", value="Guardar Planeación")
         <script src="js/planeacionFormacion.js"></script>

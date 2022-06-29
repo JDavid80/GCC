@@ -25,6 +25,13 @@ controlador.Listar_Orientadores = (req, res) => {
     });
 }
 
+controlador.Listar_Tipos_Documento = (req, res) => {
+    const sql = 'SELECT * FROM tb_tipos_documento';
+    conexion.query(sql, function(err, data) {
+        res.json(data);
+    });
+}
+
 controlador.Listar_Cursos = (req, res) => {
     const sql = 'SELECT * FROM tb_cursos'
     conexion.query(sql, function(err, data) {
@@ -41,6 +48,15 @@ controlador.Listar_Periodos = (req, res) => {
 
 controlador.Listar_Unidades = (req, res) => {
     const sql = 'SELECT * FROM tb_unidades';
+    conexion.query(sql, function(err, data) {
+        res.json(data);
+    });
+}
+
+controlador.Listar_Topicos = (req, res) => {
+    let idUnidad = req.body.idUnidad;
+
+    const sql = 'SELECT * FROM tb_topicos';
     conexion.query(sql, function(err, data) {
         res.json(data);
     });
@@ -150,6 +166,20 @@ controlador.Guardar_Unidad = (req, res) => {
         }
         else {
             res.send("Unidad registrada con éxito");
+        }
+    });
+}
+
+controlador.Guardar_Topico = (req, res) => {
+    let inputTopico = req.body.inputTopico;
+    let idUnidad = req.body.idUnidad;
+    const sql = `INSERT INTO tb_topicos (nombre_topico, id_unidad) VALUES ("${inputTopico}")`
+    conexion.query(sql, function(err, result, filed) {
+        if(err) {
+            res.send('El Tópico no se pudo registrar con éxito. Comuniquese con el administrador del sistema');
+        }
+        else {
+            res.send("Tópico registrado con éxito");
         }
     });
 }

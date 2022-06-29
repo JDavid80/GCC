@@ -1,6 +1,3 @@
-
-//let idProcesoFormacion = document.getElementById("idProcesoFormacion");
-
 let divBoxDisplayAsignatura = document.getElementById("divBoxDisplayAsignatura");
 let divBoxDisplayOrientador = document.getElementById("divBoxDisplayOrientador");
 let divBoxDisplayCurso = document.getElementById("divBoxDisplayCurso");
@@ -9,6 +6,7 @@ let iconoPlusOrientador = document.getElementById('iconoPlusOrientador');
 let iconoPlusCurso = document.getElementById('iconoPlusCurso');
 let iconoPlusPeriodo = document.getElementById('iconoPlusPeriodo');
 let iconoPlusUnidad = document.getElementById('iconoPlusUnidad');
+let iconoPlusTopico = document.getElementById('iconoPlusTopico');
 let iconoPlusSemana = document.getElementById('iconoPlusSemana');
 let iconoPlusFaseSecuencia = document.getElementById('iconoPlusFaseSecuencia');
 let iconoPlusRecurso = document.getElementById('iconoPlusRecurso');
@@ -18,6 +16,7 @@ iconoPlusProcesoFormacion.addEventListener('click', function() {
     divBoxDisplayAsignatura.classList.add('div-box-input-single');
 });
 iconoPlusOrientador.addEventListener('click', function() {
+    tiposDocumento();
     divBoxDisplayOrientador.classList.remove('div-box-input-single-hidden');
     divBoxDisplayOrientador.classList.add('div-box-input-single');
 });
@@ -32,6 +31,10 @@ iconoPlusPeriodo.addEventListener('click', function() {
 iconoPlusUnidad.addEventListener('click', function() {
     divBoxDisplayUnidad.classList.remove("div-box-input-single-hidden");
     divBoxDisplayUnidad.classList.add('div-box-input-single');
+});
+iconoPlusTopico.addEventListener('click', function() {
+    divBoxDisplayTopico.classList.remove('div-box-input-single-hidden');
+    divBoxDisplayTopico.classList.add('div-box-input-single');
 });
 iconoPlusSemana.addEventListener('click', function() {
     divBoxDisplaySemana.classList.remove("div-box-input-single-hidden");
@@ -79,6 +82,10 @@ btnCancelarUnidad.addEventListener('click', function() {
     divBoxDisplayUnidad.classList.add("div-box-input-single-hidden");
     divBoxDisplayUnidad.classList.remove('div-box-input-single');
 });
+btnCancelarTopico.addEventListener('click', function() {
+    divBoxDisplayTopico.classList.add("div-box-input-single-hidden");
+    divBoxDisplayTopico.classList.remove('div-box-input-single');
+});
 btnCancelarSemana.addEventListener('click', function() {
     divBoxDisplaySemana.classList.add("div-box-input-single-hidden");
     divBoxDisplaySemana.classList.remove('div-box-input-single');
@@ -119,6 +126,7 @@ datos.append('ident',5454554);
 
         divBoxDisplayAsignatura.classList.add("div-box-input-single-hidden");
         divBoxDisplayAsignatura.classList.remove('div-box-input-single');
+        procesoFormacion();
     }
 })
 
@@ -244,6 +252,33 @@ btnUnidad.addEventListener("click", function() {
     }
 });
 
+btnTopico.addEventListener('click', function() {
+    if(`${inputTopico.value}`.trim() == "") {
+        alert("No se puede guardar un tópico vacío");
+    }
+    else {
+        let topico = document.getElementById('inputTopico').value;
+        let idUnidad = document.getElementById('idUnidad').value;
+        console.log(idUnidad);
+        let datos = new URLSearchParams();
+
+        datos.append('dato', topico);
+        datos.append('idUnidad', idUnidad);
+
+        fetch('/Guardar_Topico',
+        {
+            method: 'post',
+            body: datos
+        })
+        .then(res => res.text())
+        .then(data => {
+            alert(data);
+        });
+        divBoxDisplayTopico.classList.add("div-box-input-single-hidden");
+        divBoxDisplayTopico.classList.remove('div-box-input-single');
+    }
+});
+
 btnSemana.addEventListener('click', function() {
     if(`${inputSemana.value}`.trim() == "") {
         alert("No se puede guardar una semana vacía");
@@ -341,6 +376,7 @@ orientadores();
 cursos();
 periodos();
 unidades();
+topicos();
 semanas();
 fasesSecuencia();
 recursos();
@@ -367,7 +403,7 @@ function orientadores() {
         .then(response => response.json())
         .then(function(data) {
             for (var i = 0; i < data.length; i++) {
-                sintaxisHtml += `<option value='${data[i].id_orientador}'>${data[i].nombres}</option>`;
+                sintaxisHtml += `<option value='${data[i].id_orientador}'>${data[i].nombres} ${data[i].primer_apellido} ${data[i].segundo_apellido}</option>`;
             }
             document.getElementById('idOrientador').innerHTML = sintaxisHtml;
         });
@@ -380,7 +416,7 @@ function cursos() {
         .then(response => response.json())
         .then(function(data) {
             for (var i = 0; i < data.length; i++) {
-                sintaxisHtml += `<option value='${data[i].id_curso}'>${data[i].nombre}</option>`;
+                sintaxisHtml += `<option value='${data[i].id_curso}'>${data[i].nombre} </option>`;
             }
             document.getElementById('idCurso').innerHTML = sintaxisHtml;
         });
@@ -409,6 +445,19 @@ function unidades() {
             sintaxisHtml += `<option value='${data[i].id_unidad}'>${data[i].nombre}</option>`;
         }
         document.getElementById('idUnidad').innerHTML = sintaxisHtml;
+    });
+}
+
+function topicos() {
+    let sintaxisHtml = '';
+
+    fetch('/Listar_Topicos')
+    .then(response => response.json())
+    .then(function(data) {
+        for(let i = 0; i < data.length; i++) {
+            sintaxisHtml += `${data[i].nombre_topico}\n`
+        }
+        document.getElementById('idTopico').innerHTML = sintaxisHtml;
     });
 }
 
@@ -452,6 +501,18 @@ function recursos() {
     });
 }
 
+function tiposDocumento() {
+    let sintaxisHtml = '';
+
+    fetch('/Listar_Tipos_Documento')
+    .then(response => response.json())
+    .then(function(data) {
+        for(let i = 0; i < data.length; i++) {
+            sintaxisHtml += `<option value='${data[i].id_tipo_documento}'>${data[i].nombre_tipo_documento}</option>`
+        }
+        document.getElementById('idTipoDocumento').innerHTML = sintaxisHtml;
+    })
+}
 /* function planeacion() {
     let sintaxisHtml = '';
 

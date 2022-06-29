@@ -123,15 +123,15 @@ h1 {
     display: grid;
     grid-template: "emptyIzq  lbl-question  icono-plus  emptyDer" 25px
                     "emptyIzq txt-select    empty-icon  emptyDer" 50px
-                    "empty    empty           empty       empty"    25px /
+                    "empty    empty         empty       empty"    25px /
                     1fr       600px            16px       1fr;
 }
 .textarea-question {
     display: grid;
-    grid-template: "emptyIzq  lbl-textarea emptyDer" 25px
-                    "emptyIzq txt-textarea emptyDer" 50px
-                    "empty    empty       empty"    50px /
-                    1fr       600px             1fr;
+    grid-template: "emptyIzq  lbl-textarea icono-plus emptyDer" 25px
+                    "emptyIzq txt-textarea empty-icon emptyDer" 50px
+                    "empty    empty        empty      empty"    50px /
+                    1fr       600px        16px       1fr;
 }
 
 /*
@@ -370,7 +370,7 @@ textarea {
 .box-input-orientador {
     display: flex;
     width: 500px;
-    height: 280px;
+    height: 400px;
     background-color: white;
     justify-content: center;
     align-items: center;
