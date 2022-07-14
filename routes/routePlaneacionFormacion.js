@@ -27,5 +27,6 @@ rutaPlaneacionFormacion.post('/Guardar_Semana', controller_PlaneacionFormacion.G
 rutaPlaneacionFormacion.post('/Guardar_Fase_Secuencia', controller_PlaneacionFormacion.Guardar_Fase_Secuencia);
 rutaPlaneacionFormacion.post('/Guardar_Recurso', controller_PlaneacionFormacion.Guardar_Recurso);
 rutaPlaneacionFormacion.post('/Guardar_Planeacion', controller_PlaneacionFormacion.Guardar_Planeacion);
+rutaPlaneacionFormacion.post('/Editar_Planeacion', controller_PlaneacionFormacion.Editar_Proceso_Formacion);
 
 module.exports = rutaPlaneacionFormacion;

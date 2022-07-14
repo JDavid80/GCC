@@ -1,6 +1,4 @@
-/* 
 listarPlaneaciones();
-
 
 function listarPlaneaciones() {
 
@@ -15,15 +13,12 @@ function listarPlaneaciones() {
                 console.log(data);
                 
                 data.forEach(element => {
-                    tabla+=`<tr><td>${element.nombres}</td><td>${element.nombre}</td></tr>`
- 
-    
+                    tabla+=`<tr><td>${element.nombre_proceso}</td><td>${element.nombres_orientador}</td></tr>`
                 });
                 
-
                document.getElementById('tabla').innerHTML=tabla;
             });
           
        
     
-} */
+}

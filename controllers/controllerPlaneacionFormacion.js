@@ -7,9 +7,8 @@ controlador.cargarIndex = (req, res) => {
 }
 
 controlador.cargarConsolidado = (req, res) => {
-    res.render('consolidado');
+    res.render('consolidadoPlaneacion');
 }
-
 
 controlador.Listar_Procesos_Formacion = (req, res) => {
     const sql = 'SELECT * FROM tb_procesos_formacion'
@@ -84,8 +83,8 @@ controlador.Listar_Recursos = (req, res) => {
 }
 
 controlador.Listar_Planeaciones = (req, res) => {
-    const sql = 'SELECT nombre_proceso, nombres, nombre FROM tb_planeaciones_formacion ' +
-    'INNER JOIN tb_proceso_formacion ON id_proceso_formacion = proceso_formacion' +
+    const sql = 'SELECT nombre_proceso, nombres_orientador, nombre FROM tb_planeaciones_formacion ' +
+    'INNER JOIN tb_procesos_formacion ON id_proceso_formacion = proceso_formacion' +
     'INNER JOIN tb_orientadores ON id_orientador = orientador ' +
     'INNER JOIN tb_periodos ON id_periodo = periodo';
     
@@ -109,12 +108,12 @@ controlador.Guardar_Proceso_Formacion = (req, res) => {
 
 controlador.Guardar_Orientador = (req, res) => {
 
-    let {nombres,primerApellido}=req.body;
-
+    let {nombres,primerApellido, segundoApellido}=req.body;
 
    try{
 
-    const sql = `INSERT INTO tb_orientadores (nombres, primer_apellido) VALUES ("${nombres}","${primerApellido}"  )`
+    const sql = `INSERT INTO tb_orientadores (nombres_orientador, primer_apellido, segundo_apellido)
+                 VALUES ("${nombres}","${primerApellido}", "${segundoApellido}")`
     console.log(sql);
     conexion.query(sql, function(err, result, filed) {
      if(!err ){
@@ -127,8 +126,6 @@ controlador.Guardar_Orientador = (req, res) => {
    } catch(error) {
        console.log(error);
    }
-
-    
 }
 
 controlador.Guardar_Curso = (req, res) => {
@@ -246,6 +243,20 @@ controlador.Guardar_Planeacion = (req, res) => {
     catch(err) {
         console.log(err);
     }
+}
+
+controlador.Editar_Proceso_Formacion = (req, res) => {
+    let idProcesoFormacion = req.body.idProcesoFormacion;
+    let inputProcesoFormacion = req.body.inputProcesoFormacion;
+
+    const sql = `UPDATE tb_procesos_formacion SET nombre_proceso = "${inputProcesoFormacion}" WHERE id_proceso_formacion = "${idProcesoFormacion}"`;
+    conexion.query(sql, function(err, result, filed) {
+        if (err) {
+            res.send('El proceso no se pudo actualizado con éxito. Comuniquese con el administrador del sistema');
+        } else {
+            res.send('Proceso de formación actualizado con exito!');
+        }
+    });   
 }
 
 module.exports = controlador;

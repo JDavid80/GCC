@@ -88,9 +88,14 @@ h1 {
     grid-area: icono-plus;
     cursor: pointer;
     margin-top: 30px;
-    margin-left: 10px;
+    margin-left: 20px;
 }
-
+.icono-edit {
+    grid-area: icono-edit;
+    cursor: pointer;
+    margin-top: 30px;
+    margin-left: 30px;
+}
 /*.display-orientador {
     display: grid;
     grid-template: "emptyIzq  lbl-orientador  icono-plus emptyDer" 25px
@@ -121,10 +126,10 @@ h1 {
 }*/
 .single-question {
     display: grid;
-    grid-template: "emptyIzq  lbl-question  icono-plus  emptyDer" 25px
-                    "emptyIzq txt-select    empty-icon  emptyDer" 50px
-                    "empty    empty         empty       empty"    25px /
-                    1fr       600px            16px       1fr;
+    grid-template: "emptyIzq  lbl-question  icono-plus  icono-edit emptyDer" 25px
+                    "emptyIzq txt-select    empty-icon  empty-icon emptyDer" 50px
+                    "empty    empty         empty       empty      empty"    25px /
+                    1fr       600px         16px        16px       1fr;
 }
 .textarea-question {
     display: grid;
@@ -345,19 +350,6 @@ textarea {
     background-color: rgb(48,48,48, .3);
     z-index: 10;
 }
-.div-box-display-orientador {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgb(48,48,48, .3);
-    z-index: 10;
-}
-/* .box-display-asignatura { */
 .box-input-single {
     display: flex;
     width: 500px;
@@ -370,11 +362,27 @@ textarea {
 .box-input-orientador {
     display: flex;
     width: 500px;
-    height: 400px;
+    height: 450px;
     background-color: white;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+}
+.div-box-display-orientador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(48,48,48, .3);
+    z-index: 10;
+}
+.box-txt-select {
+    margin-top: 15px;
+    width: 300px;
 }
 .texto-box {
     font-size: 1.1em;

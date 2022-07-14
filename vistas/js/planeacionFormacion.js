@@ -1,5 +1,5 @@
-let divBoxDisplayAsignatura = document.getElementById("divBoxDisplayAsignatura");
-let divBoxDisplayOrientador = document.getElementById("divBoxDisplayOrientador");
+let addProcesoFormacion = document.getElementById("addProcesoFormacion");
+let addOrientador = document.getElementById("addOrientador");
 let divBoxDisplayCurso = document.getElementById("divBoxDisplayCurso");
 let iconoPlusProcesoFormacion = document.getElementById('iconoPlusProcesoFormacion');
 let iconoPlusOrientador = document.getElementById('iconoPlusOrientador');
@@ -12,13 +12,14 @@ let iconoPlusFaseSecuencia = document.getElementById('iconoPlusFaseSecuencia');
 let iconoPlusRecurso = document.getElementById('iconoPlusRecurso');
 
 iconoPlusProcesoFormacion.addEventListener('click', function() {
-    divBoxDisplayAsignatura.classList.remove('div-box-input-single-hidden');
-    divBoxDisplayAsignatura.classList.add('div-box-input-single');
+    limpiarFormulario();
+    addProcesoFormacion.classList.remove('div-box-input-single-hidden');
+    addProcesoFormacion.classList.add('div-box-input-single');
 });
 iconoPlusOrientador.addEventListener('click', function() {
     tiposDocumento();
-    divBoxDisplayOrientador.classList.remove('div-box-input-single-hidden');
-    divBoxDisplayOrientador.classList.add('div-box-input-single');
+    addOrientador.classList.remove('div-box-input-single-hidden');
+    addOrientador.classList.add('div-box-input-single');
 });
 iconoPlusCurso.addEventListener('click', function() {
     divBoxDisplayCurso.classList.remove("div-box-input-single-hidden");
@@ -49,8 +50,12 @@ iconoPlusRecurso.addEventListener('click', function() {
     divBoxDisplayRecurso.classList.add('div-box-input-single');
 });
 
+/* Guardar */
+
 let btnProcesoFormacion = document.getElementById('btnProcesoFormacion');
 let btnCancelarProcesoFormacion = document.getElementById('btnCancelarProcesoFormacion');
+let btnEditProcesoFormacion = document.getElementById('btnEditProcesoFormacion');
+let btnCancelarEditProcesoFormacion = document.getElementById('btnCancelarEditProcesoFormacion');
 let btnOrientador = document.getElementById('btnOrientador');
 let btnCancelarOrientador = document.getElementById('btnCancelarOrientador');
 let btnCurso = document.getElementById('btnCurso');
@@ -63,14 +68,18 @@ let btnRecurso = document.getElementById('btnRecurso');
 let btnGuardarPlaneacion = document.getElementById('btnGuardarPlaneacion');
 
 btnCancelarProcesoFormacion.addEventListener('click', function() {
-    divBoxDisplayAsignatura.classList.add("div-box-input-single-hidden");
-    divBoxDisplayAsignatura.classList.remove('div-box-input-single');
+    addProcesoFormacion.classList.add("div-box-input-single-hidden");
+    addProcesoFormacion.classList.remove('div-box-input-single');
+});
+btnCancelarEditProcesoFormacion.addEventListener('click', function() {
+    editProcesoFormacion.classList.add("div-box-input-single-hidden");
+    editProcesoFormacion.classList.remove('div-box-input-single');
 });
 btnCancelarOrientador.addEventListener('click', function() {
-    divBoxDisplayOrientador.classList.add("div-box-input-single-hidden");
-    divBoxDisplayOrientador.classList.remove('div-box-input-single');
+    addOrientador.classList.add("div-box-input-single-hidden");
+    addOrientador.classList.remove('div-box-input-single');
 });
-btnCancelarCurso.addEventListener('click', function() {
+/*btnCancelarCurso.addEventListener('click', function() {
     divBoxDisplayCurso.classList.add("div-box-input-single-hidden");
     divBoxDisplayCurso.classList.remove('div-box-input-single');
 });
@@ -101,18 +110,18 @@ btnCancelarCurso.addEventListener('click', function() {
 btnCancelarRecurso.addEventListener('click', function() {
     divBoxDisplayRecurso.classList.add("div-box-input-single-hidden");
     divBoxDisplayRecurso.classList.remove('div-box-input-single');
-});
+});*/
 
 btnProcesoFormacion.addEventListener('click', function() {
     if (`${inputProcesoFormacion.value}`.trim() == "") {
         alert("No se puede guardar un proceso de formación vacío.");
-    } else {
-        
-var x=document.getElementById('inputProcesoFormacion').value;
-var datos = new URLSearchParams();
+    } 
+    else {
+        var x=document.getElementById('inputProcesoFormacion').value;
+        var datos = new URLSearchParams();
 
-datos.append('dato',x);
-datos.append('ident',5454554);
+        datos.append('dato',x);
+        datos.append('ident',5454554);
 
         fetch('/Guardar_Proceso_Formacion',
             {
@@ -124,8 +133,8 @@ datos.append('ident',5454554);
                 alert(data);
             });
 
-        divBoxDisplayAsignatura.classList.add("div-box-input-single-hidden");
-        divBoxDisplayAsignatura.classList.remove('div-box-input-single');
+        addProcesoFormacion.classList.add("div-box-input-single-hidden");
+        addProcesoFormacion.classList.remove('div-box-input-single');
         procesoFormacion();
     }
 })
@@ -155,17 +164,22 @@ btnGuardarPlaneacion.addEventListener('click', function() {
 function validacion() {
     return true;
 }
+
 btnOrientador.addEventListener('click', function() {
     if(`${inputNombresOrientador.value}`.trim() == "") {
-        alert("No se puede guardar un orientador vacío");
+        alert("El nombre del orientador no puede quedar vacío");
+    } else if (`${inputPrimerApellidoOrientador.value}`.trim() == "") {
+        alert("El primer apellido del orientador no puede quedar vacío");
     } else {
         let nombresOrientador = document.getElementById('inputNombresOrientador').value;
-        let apellidosOrientador = document.getElementById('inputPrimerApellidoOrientador').value;
+        let primerApellido = document.getElementById('inputPrimerApellidoOrientador').value;
+        let segundoApellido = document.getElementById('inputSegundoApellidoOrientador').value;
 
         let datos = new URLSearchParams();
 
         datos.append('nombres', nombresOrientador);
-        datos.append('primerApellido', apellidosOrientador);
+        datos.append('primerApellido', primerApellido);
+        datos.append('segundoApellido', segundoApellido);
 
         fetch('/Guardar_Orientador',
         {
@@ -177,12 +191,12 @@ btnOrientador.addEventListener('click', function() {
             alert(data);
         });
         
-        divBoxDisplayOrientador.classList.add("div-box-input-single-hidden");
-        divBoxDisplayOrientador.classList.remove('div-box-input-single');
+        addOrientador.classList.add("div-box-input-single-hidden");
+        addOrientador.classList.remove('div-box-input-single');
        orientadores();
     }
 });
-
+/*
 btnCurso.addEventListener('click', function() {
     if(`${inputCurso.value}`.trim() == "") {
         alert("No se puede guardar un curso vacío");
@@ -346,15 +360,26 @@ btnRecurso.addEventListener('click', function() {
         divBoxDisplayRecurso.classList.add("div-box-input-single-hidden");
         divBoxDisplayRecurso.classList.remove('div-box-input-single');
     }
+});*/
+
+/* Editar */
+
+iconoEditProcesoFormacion = document.getElementById("iconoEditProcesoFormacion");
+
+iconoEditProcesoFormacion.addEventListener('click', function() {
+    let editProcesoFormacion = document.getElementById('editProcesoFormacion');
+    editProcesoFormacion.classList.remove('div-box-input-single-hidden');
+    editProcesoFormacion.classList.add('div-box-input-single');
 });
+
 /* btnOrientador.addEventListener('click', function() { 
-    if (`${inputOrientador.value}`.trim() == "") {
-        alert("No se puede guardar un espacio vacío para orientador.");
+    if (`${inputNombresOrientador.value}`.trim() == "") {
+        alert("El dato Nombres no puede quedar vacío");
     }
     else {
         window.location.href = `agregarOrientador/${inputOrientador.value}`
-        divBoxDisplayOrientador.classList.add("div-box-display-orientador-hidden");
-        divBoxDisplayOrientador.classList.remove('div-box-display-orientador');
+        addOrientador.classList.add("div-box-display-orientador-hidden");
+        addOrientador.classList.remove('div-box-display-orientador');
     }       
 }); */
 /*
@@ -365,8 +390,8 @@ btnOrientador.addEventListener('click', function() {
 }); */
 
 /* function ocultarProcesoFormacion() {
-    divBoxDisplayAsignatura.classList.remove("div-box-display-asignatura-hidden");
-    divBoxDisplayAsignatura.classList.add('div-box-display-asignatura');
+    addProcesoFormacion.classList.remove("div-box-display-asignatura-hidden");
+    addProcesoFormacion.classList.add('div-box-display-asignatura');
 }
  */
 
@@ -403,7 +428,7 @@ function orientadores() {
         .then(response => response.json())
         .then(function(data) {
             for (var i = 0; i < data.length; i++) {
-                sintaxisHtml += `<option value='${data[i].id_orientador}'>${data[i].nombres} ${data[i].primer_apellido} ${data[i].segundo_apellido}</option>`;
+                sintaxisHtml += `<option value='${data[i].id_orientador}'>${data[i].nombres_orientador} ${data[i].primer_apellido} ${data[i].segundo_apellido}</option>`;
             }
             document.getElementById('idOrientador').innerHTML = sintaxisHtml;
         });
@@ -512,6 +537,10 @@ function tiposDocumento() {
         }
         document.getElementById('idTipoDocumento').innerHTML = sintaxisHtml;
     })
+}
+
+function limpiarFormulario() {
+    document.getElementById('inputProcesoFormacion').value = "";
 }
 /* function planeacion() {
     let sintaxisHtml = '';

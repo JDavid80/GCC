@@ -1,6 +1,3 @@
-div.table {
-    
-}
 .table-planeacion {
     border: 1px solid gray;
     border-collapse: collapse;
@@ -9,7 +6,7 @@ div.table {
     top: 80px;
 }
 th {
-    border: 1px solid black;
+    border: 1px solid gray;
     font-weight: 900;
 }
 td {

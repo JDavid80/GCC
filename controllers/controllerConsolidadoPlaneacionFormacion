@@ -10,3 +10,14 @@ const controlador = {}
         res.json(data);
     });
 } */
+
+controlador.Listar_Planeaciones = (req, res) => {
+    const sql = 'SELECT nombre_proceso, nombres_orientador, nombre FROM tb_planeaciones_formacion ' +
+                'INNER JOIN tb_procesos_formacion ON id_proceso_formacion = proceso_formacion ' +
+                'INNER JOIN tb_orientadores ON id_orientador = orientador ' +
+                'INNER JOIN tb_periodos ON id_periodo = periodo';
+    
+    conexion.query(sql, function(err, data) {
+        res.json(data);
+    });
+}
