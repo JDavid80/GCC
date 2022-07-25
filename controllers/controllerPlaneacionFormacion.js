@@ -2,6 +2,8 @@ const conexion = require('../database/conexion');
 
 const controlador = {}
 
+let prueba = 0;
+
 controlador.cargarIndex = (req, res) => {
     res.render('index');
 }
@@ -11,14 +13,14 @@ controlador.cargarConsolidado = (req, res) => {
 }
 
 controlador.Listar_Procesos_Formacion = (req, res) => {
-    const sql = 'SELECT * FROM tb_procesos_formacion'
+    const sql = 'SELECT * FROM tb_procesos_formacion ORDER BY nombre_proceso'
     conexion.query(sql, function(err, data) {
         res.json(data);
     });
 }
 
 controlador.Listar_Orientadores = (req, res) => {
-    const sql = 'SELECT * FROM tb_orientadores'
+    const sql = 'SELECT * FROM tb_orientadores ORDER BY primer_apellido'
     conexion.query(sql, function(err, data) {
         res.json(data);
     });
@@ -82,17 +84,6 @@ controlador.Listar_Recursos = (req, res) => {
     });
 }
 
-controlador.Listar_Planeaciones = (req, res) => {
-    const sql = 'SELECT nombre_proceso, nombres_orientador, nombre FROM tb_planeaciones_formacion ' +
-    'INNER JOIN tb_procesos_formacion ON id_proceso_formacion = proceso_formacion' +
-    'INNER JOIN tb_orientadores ON id_orientador = orientador ' +
-    'INNER JOIN tb_periodos ON id_periodo = periodo';
-    
-    conexion.query(sql, function(err, data) {
-        res.json(data);
-    });
-}
-
 controlador.Guardar_Proceso_Formacion = (req, res) => {
     let inputProcesoFormacion = req.body.dato;
 
@@ -130,7 +121,7 @@ controlador.Guardar_Orientador = (req, res) => {
 
 controlador.Guardar_Curso = (req, res) => {
     let inputCurso = req.body.dato;
-    const sql = `INSERT INTO tb_cursos (nombre) VALUES ("${inputCurso}")`
+    const sql = `INSERT INTO tb_cursos (nombre_curso) VALUES ("${inputCurso}")`
     conexion.query(sql, function(err, result, filed) {
         if(err) {
             res.send('El curso no se pudo registrar con éxito. Comuniquese con el administrador del sistema');
@@ -143,7 +134,7 @@ controlador.Guardar_Curso = (req, res) => {
 
 controlador.Guardar_Periodo = (req, res) => {
     let inputPeriodo = req.body.dato;
-    const sql = `INSERT INTO tb_periodos (nombre) VALUES ("${inputPeriodo}")`
+    const sql = `INSERT INTO tb_periodos (nombre_periodo) VALUES ("${inputPeriodo}")`
     conexion.query(sql, function(err, result, filed) {
         if(err) {
             res.send('El periodo no se pudo registrar con éxito. Comuniquese con el administrador del sistema');
@@ -168,9 +159,10 @@ controlador.Guardar_Unidad = (req, res) => {
 }
 
 controlador.Guardar_Topico = (req, res) => {
-    let inputTopico = req.body.inputTopico;
+    let nombreTopico = req.body.nombreTopico;
     let idUnidad = req.body.idUnidad;
-    const sql = `INSERT INTO tb_topicos (nombre_topico, id_unidad) VALUES ("${inputTopico}")`
+
+    const sql = `INSERT INTO tb_topicos (nombre_topico) VALUES ("${nombreTopico}")`
     conexion.query(sql, function(err, result, filed) {
         if(err) {
             res.send('El Tópico no se pudo registrar con éxito. Comuniquese con el administrador del sistema');
@@ -183,7 +175,7 @@ controlador.Guardar_Topico = (req, res) => {
 
 controlador.Guardar_Semana = (req, res) => {
     let inputSemana = req.body.dato;
-    const sql = `INSERT INTO tb_semanas (nombre) VALUES ("${inputSemana}")`
+    const sql = `INSERT INTO tb_semanas (nombre_semana) VALUES ("${inputSemana}")`
     conexion.query(sql, function(err, result, filed) {
         if(err) {
             res.send('La semana no se pudo registrar con éxito. Comuniquese con el administrador del sistema');
@@ -226,12 +218,16 @@ controlador.Guardar_Planeacion = (req, res) => {
     let idCurso = req.body.idCurso;
     let idPeriodo = req.body.idPeriodo;
     let idUnidad = req.body.idUnidad;
+    let metaSemana = req.body.metaSemana;
+    let desemp_comprension = req.body.desemp_Comprension;
 
     try{
-        const sql = `INSERT INTO tb_planeaciones_formacion (proceso_formacion, orientador, curso, periodo, unidad) 
-        VALUES 
-        ('${idProcesoFormacion}', '${idOrientador}', '${idCurso}', '${idPeriodo}', '${idUnidad}')`;
-        conexion.query(sql, function(err, result, filed) {
+        const sql = `INSERT INTO tb_planeaciones_formacion (proceso_formacion, orientador, curso, 
+                    periodo, unidad, meta_comprension_micro, desempenyos_comprension) 
+                    VALUES 
+                    ('${idProcesoFormacion}', '${idOrientador}', '${idCurso}', '${idPeriodo}', 
+                    '${idUnidad}', '${metaSemana}', '${desemp_comprension}')`;
+                    conexion.query(sql, function(err, result, filed) {
             if(!err) {
                 res.send("La planeación se registró con éxito");
             }

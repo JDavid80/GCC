@@ -1,6 +1,11 @@
 let addProcesoFormacion = document.getElementById("addProcesoFormacion");
 let addOrientador = document.getElementById("addOrientador");
-let divBoxDisplayCurso = document.getElementById("divBoxDisplayCurso");
+let addCurso = document.getElementById("addCurso");
+let addPeriodo = document.getElementById("addPeriodo");
+let addUnidad = document.getElementById("addUnidad");
+let addTopico = document.getElementById("addTopico");
+let addSemana = document.getElementById("addSemana");
+let addFaseSecuencia = document.getElementById('addFaseSecuencia');
 let iconoPlusProcesoFormacion = document.getElementById('iconoPlusProcesoFormacion');
 let iconoPlusOrientador = document.getElementById('iconoPlusOrientador');
 let iconoPlusCurso = document.getElementById('iconoPlusCurso');
@@ -12,7 +17,7 @@ let iconoPlusFaseSecuencia = document.getElementById('iconoPlusFaseSecuencia');
 let iconoPlusRecurso = document.getElementById('iconoPlusRecurso');
 
 iconoPlusProcesoFormacion.addEventListener('click', function() {
-    limpiarFormulario();
+    limpiarFormulario('inputProcesoFormacion');
     addProcesoFormacion.classList.remove('div-box-input-single-hidden');
     addProcesoFormacion.classList.add('div-box-input-single');
 });
@@ -22,28 +27,34 @@ iconoPlusOrientador.addEventListener('click', function() {
     addOrientador.classList.add('div-box-input-single');
 });
 iconoPlusCurso.addEventListener('click', function() {
-    divBoxDisplayCurso.classList.remove("div-box-input-single-hidden");
-    divBoxDisplayCurso.classList.add('div-box-input-single');
+    limpiarFormulario('inputCurso');
+    addCurso.classList.remove("div-box-input-single-hidden");
+    addCurso.classList.add('div-box-input-single');
 });
 iconoPlusPeriodo.addEventListener('click', function() {
-    divBoxDisplayPeriodo.classList.remove("div-box-input-single-hidden");
-    divBoxDisplayPeriodo.classList.add('div-box-input-single');
+    limpiarFormulario('inputPeriodo');
+    addPeriodo.classList.remove("div-box-input-single-hidden");
+    addPeriodo.classList.add('div-box-input-single');
 });
 iconoPlusUnidad.addEventListener('click', function() {
-    divBoxDisplayUnidad.classList.remove("div-box-input-single-hidden");
-    divBoxDisplayUnidad.classList.add('div-box-input-single');
+    limpiarFormulario('inputUnidad');
+    addUnidad.classList.remove("div-box-input-single-hidden");
+    addUnidad.classList.add('div-box-input-single');
 });
 iconoPlusTopico.addEventListener('click', function() {
-    divBoxDisplayTopico.classList.remove('div-box-input-single-hidden');
-    divBoxDisplayTopico.classList.add('div-box-input-single');
+    limpiarFormulario('inputTopico');
+    addTopico.classList.remove('div-box-input-single-hidden');
+    addTopico.classList.add('div-box-input-single');
 });
 iconoPlusSemana.addEventListener('click', function() {
-    divBoxDisplaySemana.classList.remove("div-box-input-single-hidden");
-    divBoxDisplaySemana.classList.add('div-box-input-single');
+    limpiarFormulario('inputSemana');
+    addSemana.classList.remove("div-box-input-single-hidden");
+    addSemana.classList.add('div-box-input-single');
 });
 iconoPlusFaseSecuencia.addEventListener('click', function() {
-    divBoxDisplayFaseSecuencia.classList.remove("div-box-input-single-hidden");
-    divBoxDisplayFaseSecuencia.classList.add('div-box-input-single');
+    limpiarFormulario('inputFaseSecuencia');
+    addFaseSecuencia.classList.remove("div-box-input-single-hidden");
+    addFaseSecuencia.classList.add('div-box-input-single');
 });
 iconoPlusRecurso.addEventListener('click', function() {
     divBoxDisplayRecurso.classList.remove("div-box-input-single-hidden");
@@ -79,31 +90,36 @@ btnCancelarOrientador.addEventListener('click', function() {
     addOrientador.classList.add("div-box-input-single-hidden");
     addOrientador.classList.remove('div-box-input-single');
 });
-/*btnCancelarCurso.addEventListener('click', function() {
-    divBoxDisplayCurso.classList.add("div-box-input-single-hidden");
-    divBoxDisplayCurso.classList.remove('div-box-input-single');
+btnCancelarCurso.addEventListener('click', function() {
+    addCurso.classList.add("div-box-input-single-hidden");
+    addCurso.classList.remove('div-box-input-single');
 });
+
 btnCancelarPeriodo.addEventListener('click', function() {
-    divBoxDisplayPeriodo.classList.add("div-box-input-single-hidden");
-    divBoxDisplayPeriodo.classList.remove('div-box-input-single');
+    addPeriodo.classList.add("div-box-input-single-hidden");
+    addPeriodo.classList.remove('div-box-input-single');
 });
+
 btnCancelarUnidad.addEventListener('click', function() {
-    divBoxDisplayUnidad.classList.add("div-box-input-single-hidden");
-    divBoxDisplayUnidad.classList.remove('div-box-input-single');
+    addUnidad.classList.add("div-box-input-single-hidden");
+    addUnidad.classList.remove('div-box-input-single');
 });
 btnCancelarTopico.addEventListener('click', function() {
-    divBoxDisplayTopico.classList.add("div-box-input-single-hidden");
-    divBoxDisplayTopico.classList.remove('div-box-input-single');
+    addTopico.classList.add("div-box-input-single-hidden");
+    addTopico.classList.remove('div-box-input-single');
 });
+
 btnCancelarSemana.addEventListener('click', function() {
-    divBoxDisplaySemana.classList.add("div-box-input-single-hidden");
-    divBoxDisplaySemana.classList.remove('div-box-input-single');
+    addSemana.classList.add("div-box-input-single-hidden");
+    addSemana.classList.remove('div-box-input-single');
 });
+
 btnCancelarFaseSecuencia.addEventListener('click', function() {
-    divBoxDisplayFaseSecuencia.classList.add("div-box-input-single-hidden");
-    divBoxDisplayFaseSecuencia.classList.remove('div-box-input-single');
+    addFaseSecuencia.classList.add("div-box-input-single-hidden");
+    addFaseSecuencia.classList.remove('div-box-input-single');
 });
-btnCancelarCurso.addEventListener('click', function() {
+/*
+btnCancelarRecurso.addEventListener('click', function() {
     divBoxDisplayRecurso.classList.add("div-box-input-single-hidden");
     divBoxDisplayRecurso.classList.remove('div-box-input-single');
 });
@@ -148,6 +164,8 @@ btnGuardarPlaneacion.addEventListener('click', function() {
         datos.append('idCurso', document.getElementById('idCurso').value);
         datos.append('idPeriodo', document.getElementById('idPeriodo').value);
         datos.append('idUnidad', document.getElementById('idUnidad').value);
+        datos.append('metaSemana', document.getElementById('metaSemana').value);
+        datos.append('desemp_Comprension', document.getElementById('inputDesempenyosComprension').value);
 
         fetch('/Guardar_Planeacion', 
         {
@@ -196,27 +214,28 @@ btnOrientador.addEventListener('click', function() {
        orientadores();
     }
 });
-/*
+
 btnCurso.addEventListener('click', function() {
     if(`${inputCurso.value}`.trim() == "") {
         alert("No se puede guardar un curso vacío");
     } else {
-        let curso = document.getElementById('inputCurso').value;
+       let nombre_curso = document.getElementById('inputCurso').value;
         let datos = new URLSearchParams();
 
-        datos.append('dato', curso);
+       datos.append('dato', nombre_curso);
 
-        fetch('/Guardar_Curso',
+         fetch('/Guardar_Curso',
         {
             method:'post',
             body:datos
-        })
+       })
         .then(res => res.text())
         .then(data => {
             alert(data);
         });
-        divBoxDisplayCurso.classList.add("div-box-input-single-hidden");
-        divBoxDisplayCurso.classList.remove('div-box-input-single');
+        addCurso.classList.add("div-box-input-single-hidden");
+        addCurso.classList.remove('div-box-input-single');
+        cursos();
     }
 });
 
@@ -238,8 +257,9 @@ btnPeriodo.addEventListener("click", function() {
         .then(data => {
             alert(data);
         });
-        divBoxDisplayPeriodo.classList.add("div-box-input-single-hidden");
-        divBoxDisplayPeriodo.classList.remove('div-box-input-single');
+        addPeriodo.classList.add("div-box-input-single-hidden");
+        addPeriodo.classList.remove('div-box-input-single');
+        periodos();
     }
 });
 
@@ -261,8 +281,9 @@ btnUnidad.addEventListener("click", function() {
         .then(data => {
             alert(data);
         });
-        divBoxDisplayUnidad.classList.add("div-box-input-single-hidden");
-        divBoxDisplayUnidad.classList.remove('div-box-input-single');
+        addUnidad.classList.add("div-box-input-single-hidden");
+        addUnidad.classList.remove('div-box-input-single');
+        unidades();
     }
 });
 
@@ -271,12 +292,12 @@ btnTopico.addEventListener('click', function() {
         alert("No se puede guardar un tópico vacío");
     }
     else {
-        let topico = document.getElementById('inputTopico').value;
+        let nombreTopico = document.getElementById('inputTopico').value;
         let idUnidad = document.getElementById('idUnidad').value;
-        console.log(idUnidad);
+
         let datos = new URLSearchParams();
 
-        datos.append('dato', topico);
+        datos.append('nombreTopico', nombreTopico);
         datos.append('idUnidad', idUnidad);
 
         fetch('/Guardar_Topico',
@@ -288,8 +309,9 @@ btnTopico.addEventListener('click', function() {
         .then(data => {
             alert(data);
         });
-        divBoxDisplayTopico.classList.add("div-box-input-single-hidden");
-        divBoxDisplayTopico.classList.remove('div-box-input-single');
+        addTopico.classList.add("div-box-input-single-hidden");
+        addTopico.classList.remove('div-box-input-single');
+        topicos();
     }
 });
 
@@ -311,8 +333,9 @@ btnSemana.addEventListener('click', function() {
         .then(data => {
             alert(data);
         });
-        divBoxDisplaySemana.classList.add("div-box-input-single-hidden");
-        divBoxDisplaySemana.classList.remove('div-box-input-single');
+        addSemana.classList.add("div-box-input-single-hidden");
+        addSemana.classList.remove('div-box-input-single');
+        semanas();
     }
 });
 
@@ -334,11 +357,13 @@ btnFaseSecuencia.addEventListener('click', function() {
         .then(data => {
             alert(data);
         });
-        divBoxDisplayFaseSecuencia.classList.add("div-box-input-single-hidden");
-        divBoxDisplayFaseSecuencia.classList.remove('div-box-input-single');
+        addFaseSecuencia.classList.add("div-box-input-single-hidden");
+        addFaseSecuencia.classList.remove('div-box-input-single');
+        fasesSecuencia();
     }
 });
 
+/*
 btnRecurso.addEventListener('click', function() {
     if(`${inputRecurso.value}`.trim() == "") {
         alert("No se puede guardar recurso vacío");
@@ -428,7 +453,7 @@ function orientadores() {
         .then(response => response.json())
         .then(function(data) {
             for (var i = 0; i < data.length; i++) {
-                sintaxisHtml += `<option value='${data[i].id_orientador}'>${data[i].nombres_orientador} ${data[i].primer_apellido} ${data[i].segundo_apellido}</option>`;
+                sintaxisHtml += `<option value='${data[i].id_orientador}'>${data[i].primer_apellido} ${data[i].segundo_apellido} ${data[i].nombres_orientador}  </option>`;
             }
             document.getElementById('idOrientador').innerHTML = sintaxisHtml;
         });
@@ -441,7 +466,7 @@ function cursos() {
         .then(response => response.json())
         .then(function(data) {
             for (var i = 0; i < data.length; i++) {
-                sintaxisHtml += `<option value='${data[i].id_curso}'>${data[i].nombre} </option>`;
+                sintaxisHtml += `<option value='${data[i].id_curso}'>${data[i].nombre_curso} </option>`;
             }
             document.getElementById('idCurso').innerHTML = sintaxisHtml;
         });
@@ -454,7 +479,7 @@ function periodos() {
     .then(response => response.json())
     .then(function(data) {
         for(let i = 0; i < data.length; i++) {
-            sintaxisHtml += `<option value='${data[i].id_periodo}'>${data[i].nombre}</option>`;
+            sintaxisHtml += `<option value='${data[i].id_periodo}'>${data[i].nombre_periodo}</option>`;
         }
         document.getElementById('idPeriodo').innerHTML = sintaxisHtml;
     });
@@ -493,7 +518,7 @@ function semanas() {
     .then(response => response.json())
     .then(function(data) {
         for(let i = 0; i < data.length; i++) {
-            sintaxisHtml += `<option value='${data[i].id_semana}'>${data[i].nombre}</option>`
+            sintaxisHtml += `<option value='${data[i].id_semana}'>${data[i].nombre_semana}</option>`
         }
         document.getElementById('idSemana').innerHTML = sintaxisHtml;
     });
@@ -539,8 +564,8 @@ function tiposDocumento() {
     })
 }
 
-function limpiarFormulario() {
-    document.getElementById('inputProcesoFormacion').value = "";
+function limpiarFormulario(idElemento) {
+    document.getElementById(idElemento).value = "";
 }
 /* function planeacion() {
     let sintaxisHtml = '';

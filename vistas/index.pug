@@ -17,7 +17,8 @@ html(lang="en")
                         i#iconoMenu.icono-menu.fa-solid.fa-bars
                 ul.menu-principal
                     li.items-principal
-                        a(href="#")
+                        //a(href="#")
+                        a(href="/planeacion")
                             i.icono-planeacion.fa-regular.fa-address-book
                                 label.texto-icono Planeación
                     li.items-principal
@@ -27,6 +28,28 @@ html(lang="en")
             div.form-box
                 form.form-planeacion
                     h1 Planeación de Clases
+                    div.single-question
+                        label.lbl-question Orientador
+                        i#iconoPlusOrientador.icono-plus.fa-solid.fa-plus
+                        i#iconoEditOrientador.icono-edit.fa-solid.fa-pen-to-square
+                        select#idOrientador.txt-select
+                    div#addOrientador.div-box-input-single-hidden
+                        div.box-input-orientador
+                            div.box-center-display-orientador
+                                label.texto-box Añadir Orientador
+                                select#idTipoDocumento.box-txt-select
+                                label.texto-box Nombres
+                                input#inputNombresOrientador.input-box(type="text", name="")
+                                label.texto-box Primer Apellido
+                                input#inputPrimerApellidoOrientador.input-box(type="text", name="")
+                                label.texto-box Segundo Apellido
+                                input#inputSegundoApellidoOrientador.input-box(type="text", name="")
+                                input#btnOrientador.button-box(type="button", value="Guardar")
+                                input#btnCancelarOrientador.button-box-cancelar(type="button" value="Cancelar")
+                    div.single-question
+                        label.lbl-question Nivel
+                        i#iconoPlusCurso.icono-plus.fa-solid.fa-plus
+                        select#idCurso.txt-select
                     div.single-question
                         label.lbl-question Proceso de Formación
                         i#iconoPlusProcesoFormacion.icono-plus.fa-solid.fa-plus
@@ -46,31 +69,10 @@ html(lang="en")
                                 input#inputEditProcesoFormacion.input-box(type="text", name="")
                                 input#btnEditProcesoFormacion.button-box(type="button", value="Guardar")
                                 input#btnCancelarEditProcesoFormacion.button-box-cancelar(type="button" value="Cancelar")
-                    div.single-question
-                        label.lbl-question Orientador
-                        i#iconoPlusOrientador.icono-plus.fa-solid.fa-plus
-                        i#iconoEditOrientador.icono-edit.fa-solid.fa-pen-to-square
-                        select#idOrientador.txt-select
-                    #addOrientador.div-box-input-single-hidden
-                        div.box-input-orientador
-                            div.box-center-display-orientador
-                                label.texto-box Añadir Orientador
-                                select#idTipoDocumento.box-txt-select
-                                label.texto-box Nombres
-                                input#inputNombresOrientador.input-box(type="text", name="")
-                                label.texto-box Primer Apellido
-                                input#inputPrimerApellidoOrientador.input-box(type="text", name="")
-                                label.texto-box Segundo Apellido
-                                input#inputSegundoApellidoOrientador.input-box(type="text", name="")
-                                input#btnOrientador.button-box(type="button", value="Guardar")
-                                input#btnCancelarOrientador.button-box-cancelar(type="button" value="Cancelar")
-                    div.single-question
-                        label.lbl-question Curso
-                        i#iconoPlusCurso.icono-plus.fa-solid.fa-plus
-                        select#idCurso.txt-select
-                    //div#divBoxDisplayCurso.box-input-single-hidden
+                    
+                    div#addCurso.div-box-input-single-hidden
                         div.box-input-single
-                            div.box-center-display-curso
+                            div.box-center-curso
                                 label.texto-box Añadir Curso
                                 input#inputCurso.input-box(type="text", name="")
                                 input#btnCurso.button-box(type="button", value="Guardar")
@@ -79,7 +81,7 @@ html(lang="en")
                         label.lbl-question Periodo
                         i#iconoPlusPeriodo.icono-plus.fa-solid.fa-plus
                         select#idPeriodo.txt-select
-                    //div#divBoxDisplayPeriodo.div-box-input-single-hidden
+                    div#addPeriodo.div-box-input-single-hidden
                         div.box-input-single
                             div.box-center-display-Periodo
                                 label.texto-box Añadir Periodo
@@ -90,7 +92,7 @@ html(lang="en")
                         label.lbl-question Unidad
                         i#iconoPlusUnidad.icono-plus.fa-solid.fa-plus
                         select#idUnidad.txt-select
-                    //div#divBoxDisplayUnidad.div-box-input-single-hidden
+                    div#addUnidad.div-box-input-single-hidden
                         div.box-input-single
                             div.box-center-display-Unidad
                                 label.texto-box Añadir Unidad
@@ -101,7 +103,7 @@ html(lang="en")
                         label.lbl-textarea Tópicos
                         i#iconoPlusTopico.icono-plus.fa-solid.fa-plus
                         textarea#idTopico(class="txt-textarea", name="topicos", cols="30", rows="10")
-                    //div#divBoxDisplayTopico.div-box-input-single-hidden
+                    div#addTopico.div-box-input-single-hidden
                         div.box-input-single
                             div.box-center-display-Topicos
                                 label.texto-box Añadir Tópico
@@ -121,7 +123,7 @@ html(lang="en")
                         label.lbl-question Semana
                         i#iconoPlusSemana.icono-plus.fa-solid.fa-plus
                         select#idSemana.txt-select
-                    //div#divBoxDisplaySemana.div-box-input-single-hidden
+                    div#addSemana.div-box-input-single-hidden
                         div.box-input-single
                             div.box-center-display-Semana
                                 label.texto-box Añadir Semana
@@ -130,12 +132,12 @@ html(lang="en")
                                 input#btnCancelarSemana.button-box-cancelar(type="button" value="Cancelar")
                     div.textarea-question
                         label.lbl-textarea Meta de Comprensión - Semana
-                        <textarea class="txt-textarea" name="metaComprension" id="" cols="30" rows="10"></textarea>
+                        <textarea class="txt-textarea" name="metaComprension" id="metaSemana" cols="30" rows="10"></textarea>
                     div.single-question
                         label.lbl-question Fase de Secuencia didáctica
                         i#iconoPlusFaseSecuencia.icono-plus.fa-solid.fa-plus
                         select#idFaseSecuencia.txt-select
-                    //div#divBoxDisplayFaseSecuencia.div-box-input-single-hidden
+                    div#addFaseSecuencia.div-box-input-single-hidden
                         div.box-input-single
                             div.box-center-display-Fase-Secuencia
                                 label.texto-box Añadir Fase  de Secuencia Didáctica

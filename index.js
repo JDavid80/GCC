@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyparser= require('body-parser');
 const planeacionFormacion = require('./routes/routePlaneacionFormacion');
+const ruta_cons_plan =require('./routes/route.cons.plan');
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(express.static('./img'));
 app.use(express.static('./js'));
 
 app.use(planeacionFormacion);
+app.use(ruta_cons_plan)
 
 app.listen('8000', function() {
     console.log('Aplicación iniciada en el puerto 8000');
