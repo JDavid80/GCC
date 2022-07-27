@@ -18,8 +18,9 @@ function listarPlaneaciones() {
                                 <td>${element.nombres_orientador} ${element.primer_apellido}</td>
                                 <td>${element.nombre_periodo}</td>
                                 <td>${element.meta_comprension_micro}</td>
-                                <td><div class="div-iconos"><i id="pruebaDiv" class='iconos fa-regular fa-file-lines'></i></div></td>
-                                <td><div class="div-iconos"><i class='iconos fa-solid fa-print'></i></div></td>
+                                <td><div class="div-iconos">
+                                        <i id="pruebaDiv" class='iconos fa-regular fa-file-lines'></i>
+                                        <i class='iconos fa-solid fa-print'></i></div></td>
                     </tr>`
                     
                 });
@@ -27,11 +28,11 @@ function listarPlaneaciones() {
                document.getElementById('tabla').innerHTML=tabla;
             });
           
-    let pruebaDiv = document.getElementById("PruebaDiv");
+    /* let pruebaDiv = document.getElementById("PruebaDiv");
 
     pruebaDiv.addEventListener("click", function() {
         alert("Holis");
-    });
+    }); */
        
     
 }
