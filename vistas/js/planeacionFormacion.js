@@ -6,6 +6,7 @@ let addUnidad = document.getElementById("addUnidad");
 let addTopico = document.getElementById("addTopico");
 let addSemana = document.getElementById("addSemana");
 let addFaseSecuencia = document.getElementById('addFaseSecuencia');
+let addRecurso = document.getElementById('addRecurso');
 let iconoPlusProcesoFormacion = document.getElementById('iconoPlusProcesoFormacion');
 let iconoPlusOrientador = document.getElementById('iconoPlusOrientador');
 let iconoPlusCurso = document.getElementById('iconoPlusCurso');
@@ -15,6 +16,7 @@ let iconoPlusTopico = document.getElementById('iconoPlusTopico');
 let iconoPlusSemana = document.getElementById('iconoPlusSemana');
 let iconoPlusFaseSecuencia = document.getElementById('iconoPlusFaseSecuencia');
 let iconoPlusRecurso = document.getElementById('iconoPlusRecurso');
+let idCurso = document.getElementById('idCurso');
 
 iconoPlusProcesoFormacion.addEventListener('click', function() {
     limpiarFormulario('inputProcesoFormacion');
@@ -57,8 +59,8 @@ iconoPlusFaseSecuencia.addEventListener('click', function() {
     addFaseSecuencia.classList.add('div-box-input-single');
 });
 iconoPlusRecurso.addEventListener('click', function() {
-    divBoxDisplayRecurso.classList.remove("div-box-input-single-hidden");
-    divBoxDisplayRecurso.classList.add('div-box-input-single');
+    addRecurso.classList.remove("div-box-input-single-hidden");
+    addRecurso.classList.add('div-box-input-single');
 });
 
 /* Guardar */
@@ -76,6 +78,7 @@ let btnUnidad = document.getElementById('btnUnidad');
 let btnSemana = document.getElementById('btnSemana');
 let btnFaseSecuencia = document.getElementById('btnFaseSecuencia');
 let btnRecurso = document.getElementById('btnRecurso');
+let btnCancelarRecurso = document.getElementById('btnCancelarRecurso');
 let btnGuardarPlaneacion = document.getElementById('btnGuardarPlaneacion');
 
 btnCancelarProcesoFormacion.addEventListener('click', function() {
@@ -118,11 +121,12 @@ btnCancelarFaseSecuencia.addEventListener('click', function() {
     addFaseSecuencia.classList.add("div-box-input-single-hidden");
     addFaseSecuencia.classList.remove('div-box-input-single');
 });
-/*
+
 btnCancelarRecurso.addEventListener('click', function() {
-    divBoxDisplayRecurso.classList.add("div-box-input-single-hidden");
-    divBoxDisplayRecurso.classList.remove('div-box-input-single');
+    addRecurso.classList.add("div-box-input-single-hidden");
+    addRecurso.classList.remove('div-box-input-single');
 });
+/*
 btnCancelarRecurso.addEventListener('click', function() {
     divBoxDisplayRecurso.classList.add("div-box-input-single-hidden");
     divBoxDisplayRecurso.classList.remove('div-box-input-single');
@@ -151,7 +155,17 @@ btnProcesoFormacion.addEventListener('click', function() {
 
         addProcesoFormacion.classList.add("div-box-input-single-hidden");
         addProcesoFormacion.classList.remove('div-box-input-single');
-        procesoFormacion();
+
+        let buscador = this.cursoSelect.find(element => element.id_curso == idCurso.value);
+        //Si el curso es prejardín, jardín o transición.
+        if (buscador.nombre_curso.substr(0,3) == "Pre" || buscador.nombre_curso.substr(0,3) == "Jar" ||
+            buscador.nombre_curso.substr(0,3) == "Tra") {
+            procesoFormacionPres();
+        }
+        //Si el curso es de primaria
+        else {
+            procesoFormacionPrim();
+        }
     }
 })
 
@@ -363,12 +377,11 @@ btnFaseSecuencia.addEventListener('click', function() {
     }
 });
 
-/*
 btnRecurso.addEventListener('click', function() {
     if(`${inputRecurso.value}`.trim() == "") {
-        alert("No se puede guardar recurso vacío");
+        alert("No se puede guardar un recurso vacío");
     } else {
-        let recurso= document.getElementById('inputRecurso').value;
+        let recurso = document.getElementById('inputRecurso').value;
         let datos = new URLSearchParams();
 
         datos.append('dato', recurso);
@@ -382,10 +395,11 @@ btnRecurso.addEventListener('click', function() {
         .then(data => {
             alert(data);
         });
-        divBoxDisplayRecurso.classList.add("div-box-input-single-hidden");
-        divBoxDisplayRecurso.classList.remove('div-box-input-single');
+        addRecurso.classList.add("div-box-input-single-hidden");
+        addRecurso.classList.remove('div-box-input-single');
+        recursos();
     }
-});*/
+});
 
 /* Editar */
 
@@ -421,7 +435,7 @@ btnOrientador.addEventListener('click', function() {
  */
 
 
-procesoFormacion();
+procesoFormacionPres();
 orientadores();
 cursos();
 periodos();
@@ -430,13 +444,13 @@ topicos();
 semanas();
 fasesSecuencia();
 recursos();
-/* planeacion(); */
 
-function procesoFormacion() {
+/* Listar cursos de preescolar */
+function procesoFormacionPres() {
 
     let sintaxisHtml = '';
 
-    fetch("/Listar_Procesos")
+    fetch("/Listar_Procesos_Pres")
         .then(response => response.json())
         .then(function(data) {
             for (var i = 0; i < data.length; i++) {
@@ -445,6 +459,23 @@ function procesoFormacion() {
             document.getElementById('idProcesoFormacion').innerHTML = sintaxisHtml;
         });
 }
+
+/* Listar cursos de Primaria */
+function procesoFormacionPrim() {
+
+    let sintaxisHtml = '';
+
+    fetch("/Listar_Procesos_Prim")
+        .then(response => response.json())
+        .then(function(data) {
+            for (var i = 0; i < data.length; i++) {
+                sintaxisHtml += `<option value='${data[i].id_proceso_formacion}'>${data[i].nombre_proceso}</option>`;
+            }
+            document.getElementById('idProcesoFormacion').innerHTML = sintaxisHtml;
+        });
+}
+
+
 
 function orientadores() {
     let sintaxisHtml = '';
@@ -458,13 +489,14 @@ function orientadores() {
             document.getElementById('idOrientador').innerHTML = sintaxisHtml;
         });
 }
-
+var cursoSelect = [];
 function cursos() {
     let sintaxisHtml = '';
 
     fetch("/Listar_Cursos")
         .then(response => response.json())
         .then(function(data) {
+            this.cursoSelect = data;
             for (var i = 0; i < data.length; i++) {
                 sintaxisHtml += `<option value='${data[i].id_curso}'>${data[i].nombre_curso} </option>`;
             }
@@ -531,7 +563,7 @@ function fasesSecuencia() {
     .then(response => response.json())
     .then(function(data) {
         for(let i = 0; i < data.length; i++) {
-            sintaxisHtml += `<option value='${data[i].id_fase_secuencia}'>${data[i].nombre}</option>`
+            sintaxisHtml += `<option value='${data[i].id_fase_secuencia}'>${data[i].nombre_fase}</option>`
         }
         document.getElementById('idFaseSecuencia').innerHTML = sintaxisHtml;
     });
@@ -545,11 +577,25 @@ function recursos() {
     .then(response => response.json())
     .then(function(data) {
         for(let i = 0; i < data.length; i++) {
-            sintaxisHtml += `<option value='${data[i].id_recurso}'>${data[i].nombre}</option>`
+            sintaxisHtml += `<option value='${data[i].id_recurso}'>${data[i].nombre_recurso}</option>`
         }
         document.getElementById('idRecurso').innerHTML = sintaxisHtml;
     });
 }
+
+/* function recursos() {
+    let sintaxisHtml = '';
+
+    fetch("/Listar_Recursos")
+    .then(response => response.json())
+    .then(function(data) {
+        for(let i = 0; i < data.length; i++) {
+            //sintaxisHtml += `<input type="checkbox" value='${data[i].id_recurso}'>${data[i].nombre_recurso}`
+            sintaxisHtml += `<input type="checkbox">${data[i].nombre_recurso}<br>`
+        }
+        document.getElementById('addRecurso').innerHTML = sintaxisHtml;
+    });
+} */
 
 function tiposDocumento() {
     let sintaxisHtml = '';
@@ -578,3 +624,22 @@ function limpiarFormulario(idElemento) {
         }
     });
 } */
+
+/* Detecta cuando se cambia el grado para cambiar las materias */
+
+/* console.log(idCurso.value);
+ */
+
+idCurso.addEventListener('change', () => {
+    //Obtener el nombre del curso seleccionado
+    let buscador = this.cursoSelect.find(element => element.id_curso == idCurso.value);
+    //Si el curso es prejardín, jardín o transición.
+    if (buscador.nombre_curso.substr(0,3) == "Pre" || buscador.nombre_curso.substr(0,3) == "Jar" ||
+        buscador.nombre_curso.substr(0,3) == "Tra") {
+        procesoFormacionPres();
+    }
+    //Si el curso es de primaria
+    else {
+        procesoFormacionPrim();
+    }
+});

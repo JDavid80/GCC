@@ -12,12 +12,28 @@ controlador.cargarConsolidado = (req, res) => {
     res.render('consolidadoPlaneacion');
 }
 
-controlador.Listar_Procesos_Formacion = (req, res) => {
+/* controlador.Listar_Procesos_Formacion = (req, res) => {
     const sql = 'SELECT * FROM tb_procesos_formacion ORDER BY nombre_proceso'
     conexion.query(sql, function(err, data) {
         res.json(data);
     });
-}
+} */
+
+/* Listar cursos de Primaria */
+controlador.Listar_Procesos_Prim = (req, res) => {
+    const sql = "SELECT * FROM tb_procesos_formacion WHERE tipo_proceso = 'prim' ORDER BY nombre_proceso"
+    conexion.query(sql, function(err, data) {
+        res.json(data);
+    });
+} 
+
+/* Listar cursos de Pre-escolar */
+controlador.Listar_Procesos_Pres = (req, res) => {
+    const sql = "SELECT * FROM tb_procesos_formacion WHERE tipo_proceso = 'pres' ORDER BY nombre_proceso"
+    conexion.query(sql, function(err, data) {
+        res.json(data);
+    });
+} 
 
 controlador.Listar_Orientadores = (req, res) => {
     const sql = 'SELECT * FROM tb_orientadores ORDER BY primer_apellido'
@@ -38,7 +54,7 @@ controlador.Listar_Cursos = (req, res) => {
     conexion.query(sql, function(err, data) {
         res.json(data);
     });
-}
+} 
 
 controlador.Listar_Periodos = (req, res) => {
     const sql = 'SELECT * FROM tb_periodos';
@@ -71,14 +87,14 @@ controlador.Listar_Semanas = (req, res) => {
 }
 
 controlador.Listar_Fases_Secuencia = (req, res) => {
-    const sql = 'SELECT * FROM tb_fases_secuencia';
+    const sql = 'SELECT * FROM tb_fases_secuencia ORDER BY nombre_fase';
     conexion.query(sql, function(err, data) {
         res.json(data);
     });
 }
 
 controlador.Listar_Recursos = (req, res) => {
-    const sql = 'SELECT * FROM tb_recursos';
+    const sql = 'SELECT * FROM tb_recursos ORDER BY nombre_recurso';
     conexion.query(sql, function(err, data) {
         res.json(data);
     });
@@ -188,7 +204,7 @@ controlador.Guardar_Semana = (req, res) => {
 
 controlador.Guardar_Fase_Secuencia = (req, res) => {
     let inputFaseSecuencia = req.body.dato;
-    const sql = `INSERT INTO tb_fases_secuencia (nombre) VALUES ("${inputFaseSecuencia}")`
+    const sql = `INSERT INTO tb_fases_secuencia (nombre_fase) VALUES ("${inputFaseSecuencia}")`
     conexion.query(sql, function(err, data, filed) {
         if(err) {
             res.send('La fase no se pudo registrar con éxito. Comuniquese con el administrador del sistema');
@@ -201,7 +217,7 @@ controlador.Guardar_Fase_Secuencia = (req, res) => {
 
 controlador.Guardar_Recurso = (req, res) => {
     let inputRecurso = req.body.dato;
-    const sql = `INSERT INTO tb_recursos (nombre) VALUES ("${inputRecurso}")`;
+    const sql = `INSERT INTO tb_recursos (nombre_recurso) VALUES ("${inputRecurso}")`;
     conexion.query(sql, function(err, data, filed) {
         if(err) {
             res.send('El recurso no se pudo registrar con éxito. Comuniquese con el administrador del sistema');

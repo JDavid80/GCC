@@ -50,6 +50,13 @@ html(lang="en")
                         label.lbl-question Nivel
                         i#iconoPlusCurso.icono-plus.fa-solid.fa-plus
                         select#idCurso.txt-select
+                    div#addCurso.div-box-input-single-hidden
+                        div.box-input-single
+                            div.box-center-curso
+                                label.texto-box Añadir Curso
+                                input#inputCurso.input-box(type="text", name="")
+                                input#btnCurso.button-box(type="button", value="Guardar")
+                                input#btnCancelarCurso.button-box-cancelar(type="button" value="Cancelar")
                     div.single-question
                         label.lbl-question Proceso de Formación
                         i#iconoPlusProcesoFormacion.icono-plus.fa-solid.fa-plus
@@ -70,13 +77,6 @@ html(lang="en")
                                 input#btnEditProcesoFormacion.button-box(type="button", value="Guardar")
                                 input#btnCancelarEditProcesoFormacion.button-box-cancelar(type="button" value="Cancelar")
                     
-                    div#addCurso.div-box-input-single-hidden
-                        div.box-input-single
-                            div.box-center-curso
-                                label.texto-box Añadir Curso
-                                input#inputCurso.input-box(type="text", name="")
-                                input#btnCurso.button-box(type="button", value="Guardar")
-                                input#btnCancelarCurso.button-box-cancelar(type="button" value="Cancelar")
                     div.single-question
                         label.lbl-question Periodo
                         i#iconoPlusPeriodo.icono-plus.fa-solid.fa-plus
@@ -147,11 +147,22 @@ html(lang="en")
                     div.textarea-question
                         label.lbl-textarea Desempeños de Comprensión
                         textarea#inputDesempenyosComprension.txt-textarea(name="desempeniosComprension", cols="30", rows="10")
+                    //div.single-question
+                        label.lbl-question Recursos
+                        i#iconoPlusRecurso.icono-plus.fa-solid.fa-plus
+                        select#idRecurso.txt-select
+                    //div#addRecurso.div-box-input-single-hidden
+                        div.box-input-recurso
+                            div.box-center-display-Recurso
+                                label.texto-box Añadir Recurso
+                                input#inputRecurso.input-box(type="text", name="")
+                                input#btnRecurso.button-box(type="button", value="Guardar")
+                                input#btnCancelarRecurso.button-box-cancelar(type="button" value="Cancelar")
                     div.single-question
                         label.lbl-question Recursos
                         i#iconoPlusRecurso.icono-plus.fa-solid.fa-plus
                         select#idRecurso.txt-select
-                    //div#divBoxDisplayRecurso.div-box-input-single-hidden
+                    div#addRecurso.div-box-input-single-hidden
                         div.box-input-single
                             div.box-center-display-Recurso
                                 label.texto-box Añadir Recurso

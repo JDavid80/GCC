@@ -7,7 +7,8 @@ const controller_PlaneacionFormacion = require('../controllers/controllerPlaneac
 rutaPlaneacionFormacion.get("/", controller_PlaneacionFormacion.cargarIndex);
 rutaPlaneacionFormacion.get("/planeacion", controller_PlaneacionFormacion.cargarIndex);
 rutaPlaneacionFormacion.get("/consolidado", controller_PlaneacionFormacion.cargarConsolidado);
-rutaPlaneacionFormacion.get("/Listar_Procesos", controller_PlaneacionFormacion.Listar_Procesos_Formacion);
+rutaPlaneacionFormacion.get("/Listar_Procesos_Prim", controller_PlaneacionFormacion.Listar_Procesos_Prim);
+rutaPlaneacionFormacion.get("/Listar_Procesos_Pres", controller_PlaneacionFormacion.Listar_Procesos_Pres);
 rutaPlaneacionFormacion.get("/Listar_Orientadores", controller_PlaneacionFormacion.Listar_Orientadores);
 rutaPlaneacionFormacion.get('/Listar_Tipos_Documento', controller_PlaneacionFormacion.Listar_Tipos_Documento);
 rutaPlaneacionFormacion.get("/Listar_Cursos", controller_PlaneacionFormacion.Listar_Cursos);

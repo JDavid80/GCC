@@ -16,3 +16,6 @@ td {
 th, td {
     padding: 15px;
 }
+#div-table {
+    overflow: scroll;
+}

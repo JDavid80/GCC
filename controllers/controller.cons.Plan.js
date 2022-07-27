@@ -16,8 +16,9 @@ controlador.Listar_Planeaciones = (req, res) => {
                 INNER JOIN tb_cursos ON id_curso = curso
                 INNER JOIN tb_procesos_formacion ON id_proceso_formacion = proceso_formacion
                 INNER JOIN tb_orientadores ON id_orientador = orientador
-                INNER JOIN tb_periodos ON id_periodo = periodo`;
+                INNER JOIN tb_periodos ON id_periodo = periodo ORDER BY curso`;
     conexion.query(sql, (err, data)=> {
+        console.log(data);
         res.json(data);
     });
 }
